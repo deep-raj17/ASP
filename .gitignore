@@ -65,3 +65,46 @@ MIMII/
 *.wav
 *.mp3
 *.flac
+ 
+# Python
+
+**pycache**/
+*.pyc
+
+# Virtual Environment
+
+venv/
+env/
+
+# PyTorch / Models
+
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+
+# Dataset
+
+datasets/
+data/
+*.zip
+
+# Logs
+
+runs/
+logs/
+
+# IDE
+
+.vscode/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Build
+
+dist/
+build/
