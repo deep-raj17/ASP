@@ -1,0 +1,38 @@
+[Unit]
+Description=MIMII Industrial Acoustic Anomaly Detector
+Documentation=https://github.com/your-org/mimii-detector
+After=network.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/opt/mimii/venv/bin/python3 /opt/mimii/edge_streaming.py --config /opt/mimii/config.yaml
+WorkingDirectory=/opt/mimii
+User=mimii
+Group=audio
+
+# Auto-restart on any failure
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+# Watchdog: kill process if no heartbeat in 30s
+WatchdogSec=30
+NotifyAccess=main
+
+# Resource limits — RPi5 has 4GB/8GB
+MemoryMax=1G
+CPUAffinity=1-3
+Nice=-10
+
+# Environment
+Environment=PYTHONUNBUFFERED=1
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mimii-detector
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,77 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+venv*/
+.venv*/
+ENV/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+.sixth/
+*.swp
+*.swo
+*~
+
+# Data (mount separately)
+MIMII_DATASET/
+MIMII/
+*.wav
+*.mp3
+*.flac
+
+# Logs and outputs
+logs/
+checkpoints/*.pt
+!checkpoints/best_model.pt
+!checkpoints/detector_calibration.pt
+exports/
+*.log
+
+# Pip cache / temp
+pipcache/
+piptmp/
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation (keep README)
+docs/
+*.md
+!README.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Generated reports
+training_results.csv
+benchmark_results.txt
+verify_install.py

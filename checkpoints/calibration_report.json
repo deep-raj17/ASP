@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-05-15T10:46:04",
+  "source_file": "checkpoints\\detector_calibration.pt",
+  "calibration_statistics": {
+    "reconstruction_error": {
+      "mean": 0.002762425923720002,
+      "std": 0.0016201996360144019
+    },
+    "embedding_distance": {
+      "mean": 0.011398599483072758,
+      "std": 0.01046682310981512
+    },
+    "mahalanobis_distance": {
+      "mean": 13.737991333007812,
+      "std": 1.9840880732400512
+    },
+    "contrastive_distance": {
+      "mean": 0.0034780786372721195,
+      "std": 0.0014378755469045042
+    }
+  },
+  "stored_objects": {
+    "ref_mean": {
+      "type": "ndarray",
+      "shape": [
+        256
+      ],
+      "dtype": "float32",
+      "mean": 0.0031364681199193,
+      "std": 0.06170794367790222,
+      "min": -0.15638181567192078,
+      "max": 0.17234766483306885
+    },
+    "ref_cov_inv": {
+      "type": "ndarray",
+      "shape": [
+        256,
+        256
+      ],
+      "dtype": "float32",
+      "mean": 3038.98583984375,
+      "std": 86191.3515625,
+      "min": -359936.8125,
+      "max": 1411610.0
+    },
+    "ref_pool": {
+      "type": "ndarray",
+      "shape": [
+        37685,
+        256
+      ],
+      "dtype": "float32",
+      "mean": 0.0031364562455564737,
+      "std": 0.062421251088380814,
+      "min": -0.1875661015510559,
+      "max": 0.2018558830022812
+    },
+    "recon_mu": {
+      "type": "float",
+      "value": 0.002762425923720002
+    },
+    "recon_sigma": {
+      "type": "float",
+      "value": 0.0016201996360144019
+    },
+    "embed_mu": {
+      "type": "float",
+      "value": 0.011398599483072758
+    },
+    "embed_sigma": {
+      "type": "float",
+      "value": 0.01046682310981512
+    },
+    "mahal_mu": {
+      "type": "float",
+      "value": 13.737991333007812
+    },
+    "mahal_sigma": {
+      "type": "float",
+      "value": 1.9840880732400512
+    },
+    "contra_mu": {
+      "type": "float",
+      "value": 0.0034780786372721195
+    },
+    "contra_sigma": {
+      "type": "float",
+      "value": 0.0014378755469045042
+    }
+  }
+}

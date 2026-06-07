@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-05-17T20:53:41.974862+00:00",
+  "source": {
+    "best_model_pt": "checkpoints\\best_model.pt",
+    "size_mb": 249.32,
+    "quantized": false,
+    "dtype": "float32"
+  },
+  "artifacts": {
+    "best_model_fp16.pt": {
+      "path": "artifacts\\models\\best_model_fp16.pt",
+      "size_mb": 207.67,
+      "quantized": true,
+      "quantization_type": "fp16_weight_storage",
+      "requires_recalibration": false,
+      "recommended_for": "cuda_gpu_inference"
+    }
+  },
+  "calibration": {
+    "path": "checkpoints\\detector_calibration.pt",
+    "note": "Reuse existing detector_calibration.pt \u2014 do not regenerate."
+  },
+  "int8_note": "INT8 ONNX (static PTQ, ONNX Runtime) is the edge-optimized classifier. Canonical copy: edge_deploy/models/classifier_int8.onnx. Mirror for packaging: artifacts/onnx_int8/classifier_int8.onnx (same bytes; no re-quantization).",
+  "onnx_int8": {
+    "canonical": "edge_deploy/models/classifier_int8.onnx",
+    "mirror": "artifacts/onnx_int8/classifier_int8.onnx"
+  }
+}

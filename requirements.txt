@@ -1,0 +1,31 @@
+# Core ML. setup.bat installs CUDA-specific PyTorch wheels on Windows.
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Audio
+librosa>=0.10.1
+soundfile>=0.12.1
+
+# ML and metrics
+scikit-learn>=1.3.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Visualization and UI
+matplotlib>=3.7.0
+gradio>=4.7.0
+Pillow>=10.0.0
+
+# Experiment tracking
+tensorboard>=2.14.0
+# wandb>=0.16.0
+
+# Production API
+flask>=2.3.0
+gunicorn>=21.2.0
+
+# Utilities
+tqdm>=4.66.0
+pandas>=2.0.0
+psutil>=5.9.0

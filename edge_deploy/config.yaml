@@ -1,0 +1,49 @@
+# ─────────────────────────────────────────────────────────
+#  MIMII Edge Deployment Configuration
+#  Raspberry Pi 5 (ARM64 Cortex-A76)
+# ─────────────────────────────────────────────────────────
+
+# Audio capture
+sample_rate: 16000
+audio_duration_sec: 10.0
+hop_duration_sec: 5.0
+capture_chunk_samples: 4096
+
+# Feature extraction (must match training config)
+n_fft: 2048
+hop_length: 512
+n_mels: 128
+fmin: 20.0
+fmax: 8000.0
+
+# Model paths
+classifier_model: "models/classifier_int8.onnx"
+autoencoder_model: "models/autoencoder_fp32.onnx"
+calibration_path: "models/calibration.npz"
+
+# ONNX Runtime
+num_threads: 3
+
+# Autoencoder duty cycle (run every Nth inference to save compute)
+# 4 = run autoencoder every 4th cycle (~25% compute overhead vs 100%)
+autoencoder_duty_cycle: 4
+
+# MQTT alert publishing
+mqtt_enabled: false
+mqtt_broker: "localhost"
+mqtt_port: 1883
+mqtt_topic: "mimii/machine/status"
+
+# Audio device (null = system default, or ALSA device like "hw:0,0")
+audio_device: null
+
+# Thermal management
+thermal_warning_c: 75
+thermal_critical_c: 82
+
+# systemd watchdog
+watchdog_enabled: true
+
+# Logging
+log_level: "INFO"
+log_file: "/var/log/mimii/inference.log"

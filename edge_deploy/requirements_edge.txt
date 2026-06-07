@@ -1,0 +1,11 @@
+# MIMII Edge Deployment — Raspberry Pi 5 Requirements
+# Install on RPi5: pip install -r requirements_edge.txt
+# NOTE: Do NOT install PyTorch on RPi5 (800MB+ wheel, 10x slower than ONNX RT)
+
+onnxruntime>=1.17.0
+numpy>=1.24.0
+sounddevice>=0.4.6
+paho-mqtt>=2.0.0
+sdnotify>=0.3.2
+psutil>=5.9.0
+PyYAML>=6.0

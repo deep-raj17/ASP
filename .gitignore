@@ -1,0 +1,67 @@
+# ─────────────────────────────────────────────────────────
+#  MIMII Acoustic Anomaly Detection — .gitignore
+# ─────────────────────────────────────────────────────────
+
+# Virtual environments
+venv/
+venv*/
+.venv*/
+ENV/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# IDE / Editor
+.vscode/
+.idea/
+.sixth/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+desktop.ini
+
+# Checkpoints (keep only best + calibration)
+checkpoints/epoch_*.pt
+!checkpoints/best_model.pt
+!checkpoints/detector_calibration.pt
+
+# Logs (runtime output)
+logs/
+logs/*.err.log
+logs/*.out.log
+
+# Pip cache / temp
+pipcache/
+piptmp/
+
+# Exports (generated)
+exports/
+
+# Temporary files
+*.tmp
+*.bak
+training_results.csv
+verify_install.py
+benchmark_results.txt
+
+# Data (never commit dataset)
+MIMII_DATASET/
+MIMII/
+*.wav
+*.mp3
+*.flac
