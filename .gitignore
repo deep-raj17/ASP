@@ -84,10 +84,10 @@ env/
 *.engine
 *.ckpt
 
-# Dataset
-
+# Dataset (keep Python modules under data/)
 datasets/
-data/
+data/*
+!data/*.py
 *.zip
 
 # Logs
