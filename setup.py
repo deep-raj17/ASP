@@ -21,6 +21,34 @@ import platform
 from pathlib import Path
 
 
+_SETUPTOOLS_COMMANDS = {
+    "bdist_wheel",
+    "build",
+    "build_py",
+    "develop",
+    "dist_info",
+    "editable_wheel",
+    "egg_info",
+    "install",
+    "sdist",
+}
+
+
+if len(sys.argv) > 1 and sys.argv[1] in _SETUPTOOLS_COMMANDS:
+    from setuptools import find_packages, setup
+
+    setup(
+        name="finora-aurum",
+        version="0.1.0",
+        description="FINORA research automation CLI",
+        package_dir={"aurum": "src/aurum"},
+        packages=find_packages(where="src") + find_packages(include=["scripts*"]),
+        entry_points={"console_scripts": ["aurum=aurum.cli:main"]},
+        python_requires=">=3.10",
+    )
+    raise SystemExit
+
+
 def run_command(cmd, check=True, capture=False):
     """Run a shell command."""
     print(f"Running: {' '.join(cmd)}")
