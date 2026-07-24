@@ -1,0 +1,33 @@
+"""Stable workflow-engine errors."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from enum import Enum
+
+
+class ErrorCode(str, Enum):
+    INVALID_WORKFLOW_DEFINITION = "INVALID_WORKFLOW_DEFINITION"
+    UNSUPPORTED_SCHEMA_VERSION = "UNSUPPORTED_SCHEMA_VERSION"
+    DUPLICATE_IDENTIFIER = "DUPLICATE_IDENTIFIER"
+    CYCLIC_DEPENDENCY = "CYCLIC_DEPENDENCY"
+    INVALID_TRANSITION = "INVALID_TRANSITION"
+    PREREQUISITE_NOT_SATISFIED = "PREREQUISITE_NOT_SATISFIED"
+    EVIDENCE_REFERENCE_REQUIRED = "EVIDENCE_REFERENCE_REQUIRED"
+    APPROVAL_REQUIRED = "APPROVAL_REQUIRED"
+    POLICY_VIOLATION = "POLICY_VIOLATION"
+    CONCURRENCY_CONFLICT = "CONCURRENCY_CONFLICT"
+    WORKFLOW_TERMINAL = "WORKFLOW_TERMINAL"
+    IDEMPOTENT_NO_CHANGE = "IDEMPOTENT_NO_CHANGE"
+    STATE_STORE_FAILURE = "STATE_STORE_FAILURE"
+    AUDIT_WRITE_FAILURE = "AUDIT_WRITE_FAILURE"
+
+
+@dataclass(frozen=True)
+class WorkflowError(Exception):
+    code: ErrorCode
+    message: str
+    location: str = ""
+
+    def __str__(self) -> str:
+        return f"{self.code.value}: {self.message}"

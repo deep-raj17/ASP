@@ -1,0 +1,9 @@
+requirement_id,source_specification,requirement,target_component,test_coverage,status
+WF-001,STATE_MACHINE.md,Distinct workflow states,types.py,test_workflow_engine.py,IMPLEMENTED
+WF-002,STATE_MACHINE.md,Policy-authorized waiver,evaluator.py,test_workflow_engine.py,IMPLEMENTED
+WF-003,WORKFLOW_ENGINE.md,Safe declarative loading,loader.py,test_workflow_validation.py,IMPLEMENTED
+WF-004,WORKFLOW_ENGINE.md,Structural and cycle validation,validator.py,test_workflow_validation.py,IMPLEMENTED
+WF-005,WORKFLOW_ENGINE.md,Deterministic transitions,engine.py,test_workflow_engine.py,IMPLEMENTED
+WF-006,REGISTRIES.md,Append-only transition history,audit.py,test_workflow_engine.py,IMPLEMENTED
+WF-007,CLI_SPECIFICATION.md,Dry-run and idempotency,engine.py,test_workflow_engine.py,IMPLEMENTED
+WF-008,EVIDENCE_ENGINE.md,Explicit gate-evaluation input,evaluator.py,test_workflow_engine.py,IMPLEMENTED

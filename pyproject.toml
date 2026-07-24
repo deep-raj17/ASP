@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-operating-system"
+version = "0.1.0"
+description = "Evidence-first research workflow control plane"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0"]
+
+[project.scripts]
+ros = "ros.cli.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/ros"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+include = ["ros*"]

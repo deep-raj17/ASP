@@ -1,0 +1,28 @@
+schema_version: ros.workflow/v1
+id: research-validation-demo
+version: 1.0.0
+stop_conditions:
+  - integrity_violation
+gates:
+  - id: repository
+    title: Repository evidence
+    entry: true
+    retry_limit: 1
+  - id: data
+    title: Data evidence
+    prerequisites: [repository]
+    parallel_group: validation
+  - id: method
+    title: Method evidence
+    prerequisites: [repository]
+    parallel_group: validation
+  - id: ethics
+    title: Administrative ethics review
+    prerequisites: [repository]
+    administrative: true
+    allow_waiver: true
+    waiver_policy: policy.ethics-waiver.v1
+  - id: final
+    title: Final validation
+    prerequisites: [data, method, ethics]
+    terminal: true
