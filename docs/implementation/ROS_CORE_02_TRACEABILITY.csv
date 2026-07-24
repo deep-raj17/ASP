@@ -1,0 +1,7 @@
+requirement,component,test,status
+Immutable evidence,store.py,test_evidence_engine.py,IMPLEMENTED
+Canonical hashing,hashing.py,test_evidence_engine.py,IMPLEMENTED
+Verifier contract,verifiers.py,test_evidence_engine.py,IMPLEMENTED
+Lineage,engine.py,test_evidence_engine.py,IMPLEMENTED
+Gate evaluation,engine.py,test_evidence_engine.py,IMPLEMENTED
+Tamper quarantine,engine.py,test_evidence_engine.py,IMPLEMENTED
