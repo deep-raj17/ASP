@@ -1,0 +1,20 @@
+api_version: ros.dev/v1
+kind: ArtifactImportMap
+artifacts:
+  - id: chaad-best-model
+    path: checkpoints/best_model.pt
+    type: MODEL_CHECKPOINT
+    sha256: 7d58293ea5138b730811bb261de0b971a8a5e4e52665961b48f2f4a4d85ad7e9
+    status: PROVISIONAL
+    experiment: EXP-CHAAD-001
+  - id: chaad-validation-export-invalid
+    path: artifacts/EXP-CHAAD-001/validation_predictions.csv
+    type: METRIC_EXPORT
+    sha256: bee40c84a218cd460b1eab5b280e2628d561e00ea89b045ea0ec3b9a29f8af20
+    status: INVALID
+  - id: chaad-validation-export-corrected
+    path: artifacts/EXP-CHAAD-001/validation_predictions_corrected.csv
+    type: METRIC_EXPORT
+    sha256: 9c88cc847630b927ce317399f5805d9c40643375ba6d284d9cb549cb399c4f4b
+    status: CURRENT_PROVISIONAL
+    supersedes: chaad-validation-export-invalid

@@ -1,0 +1,11 @@
+api_version: ros.dev/v1
+kind: WorkflowBindings
+workflows:
+  - id: PMPS
+    version: 1.0.0
+    definition: ../../ros/specs/workflows/pmps-1.0.0.yaml
+    instance_id: chaad-pmps-1
+    current_gate: PMPS-01
+    derived_gate_state: BLOCKED
+    derived_workflow_state: BLOCKED
+    derivation: ros.evidence-engine/1.0.0

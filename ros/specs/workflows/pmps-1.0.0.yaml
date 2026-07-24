@@ -1,0 +1,76 @@
+schema_version: ros.workflow/v1
+id: PMPS
+version: 1.0.0
+source_authority: approved PMPS prompt series
+gates:
+  - id: PMPS-01
+    title: Repository Freeze, Scientific Provenance, and Publication Baseline
+    entry: true
+    allow_waiver: false
+    requirements:
+      - id: repository_inventory
+        description: Repository inventory is complete and content-addressed.
+        evidence_types: [AUDIT_REPORT]
+      - id: dataset_inventory
+        description: Dataset inventory, identity, and structure are complete.
+        evidence_types: [DATASET_MANIFEST, AUDIT_REPORT]
+      - id: dataset_integrity
+        description: Every corpus WAV is readable, finite, and matches a live SHA-256.
+        evidence_types: [AUDIT_REPORT]
+      - id: dataset_license_identity
+        description: Local corpus version and license are tied to an authoritative release.
+        evidence_types: [EXTERNAL_REFERENCE, DATASET_MANIFEST]
+      - id: checkpoint_inventory
+        description: Checkpoints are inventoried, checksummed, and linked to experiments.
+        evidence_types: [MODEL_CHECKPOINT, AUDIT_REPORT]
+      - id: environment_capture
+        description: Runtime and dependency environment are captured.
+        evidence_types: [ENVIRONMENT_RECORD]
+      - id: configuration_capture
+        description: Effective experiment configuration is captured.
+        evidence_types: [CONFIGURATION]
+      - id: git_capture
+        description: Revision, branch, status, and provenance are captured.
+        evidence_types: [SOURCE_REVISION]
+      - id: experiment_registry
+        description: Experiments and orphan assessments are recorded.
+        evidence_types: [EXPERIMENT_EXECUTION]
+      - id: model_card
+        description: Model card states verified scope and limitations.
+        evidence_types: [PUBLICATION_ARTIFACT]
+      - id: dataset_card
+        description: Dataset card states composition, split, provenance, and limitations.
+        evidence_types: [PUBLICATION_ARTIFACT]
+      - id: governance
+        description: Research governance and claim restrictions are documented.
+        evidence_types: [PUBLICATION_ARTIFACT]
+      - id: publication_baseline
+        description: Publication baseline records readiness without unsupported claims.
+        evidence_types: [PUBLICATION_ARTIFACT]
+    retry_limit: 3
+  - id: PMPS-02
+    title: Dataset Certification
+    prerequisites: [PMPS-01]
+  - id: PMPS-03
+    title: Experimental Protocol Certification
+    prerequisites: [PMPS-02]
+  - id: PMPS-04
+    title: Training Pipeline Audit
+    prerequisites: [PMPS-03]
+  - id: PMPS-05
+    title: Evaluation and Statistical Validation
+    prerequisites: [PMPS-04]
+  - id: PMPS-06
+    title: Contribution and Ablation Validation
+    prerequisites: [PMPS-05]
+  - id: PMPS-07
+    title: Reproducibility and Artifact Review
+    prerequisites: [PMPS-06]
+  - id: PMPS-08
+    title: Publication Package
+    prerequisites: [PMPS-07]
+    terminal: true
+stop_conditions:
+  - Do not advance when required evidence is missing or fails verification.
+  - Do not use test-set evidence before the approved evaluation gate.
+  - Do not convert documentation claims into verified evidence.

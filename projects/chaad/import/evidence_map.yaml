@@ -1,0 +1,24 @@
+api_version: ros.dev/v1
+kind: EvidenceImportMap
+project_id: chaad
+records:
+  - {id: chaad-repository-inventory, type: AUDIT_REPORT, path: artifacts/publication_baseline/repository_inventory.json, requirements: [repository_inventory], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-dataset-inventory, type: AUDIT_REPORT, path: artifacts/publication_baseline/dataset_inventory.json, requirements: [dataset_inventory], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-dataset-integrity-partial, type: AUDIT_REPORT, path: artifacts/publication_baseline/dataset_integrity_report.json, requirements: [], verifiers: [file-checksum, structured-schema], limitation: full-corpus checks are UNVERIFIED}
+  - {id: chaad-dataset-integrity-full-20260724, type: AUDIT_REPORT, path: migration/chaad/remediation/pmps01_dataset_audit_20260724.json, requirements: [dataset_integrity], verifiers: [file-checksum, structured-schema], classification: VERIFIED_CURRENT}
+  - {id: chaad-dataset-manifest, type: DATASET_MANIFEST, path: metadata/dataset_manifest.csv, requirements: [dataset_inventory], verifiers: [file-checksum]}
+  - {id: chaad-checkpoint-registry, type: AUDIT_REPORT, path: artifacts/publication_baseline/checkpoint_registry.json, requirements: [checkpoint_inventory], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-environment, type: ENVIRONMENT_RECORD, path: artifacts/publication_baseline/environment_full.json, requirements: [environment_capture], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-configuration, type: CONFIGURATION, path: artifacts/publication_baseline/config_snapshot.json, requirements: [configuration_capture], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-git-snapshot, type: SOURCE_REVISION, path: artifacts/publication_baseline/git_snapshot.json, requirements: [git_capture], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-experiment-registry, type: EXPERIMENT_EXECUTION, path: artifacts/publication_baseline/MASTER_EXPERIMENT_REGISTRY.json, requirements: [experiment_registry], verifiers: [file-checksum, structured-schema]}
+  - {id: chaad-model-card, type: PUBLICATION_ARTIFACT, path: artifacts/publication_baseline/MODEL_CARD.md, requirements: [model_card], verifiers: [file-checksum]}
+  - {id: chaad-dataset-card, type: PUBLICATION_ARTIFACT, path: artifacts/publication_baseline/DATASET_CARD.md, requirements: [dataset_card], verifiers: [file-checksum]}
+  - {id: chaad-governance, type: PUBLICATION_ARTIFACT, path: artifacts/publication_baseline/RESEARCH_GOVERNANCE.md, requirements: [governance], verifiers: [file-checksum]}
+  - {id: chaad-publication-baseline, type: PUBLICATION_ARTIFACT, path: artifacts/publication_baseline/PUBLICATION_BASELINE.md, requirements: [publication_baseline], verifiers: [file-checksum]}
+  - {id: chaad-historical-pmps01-fail, type: AUDIT_REPORT, path: artifacts/publication_baseline/pmps01_gate.json, requirements: [], verifiers: [file-checksum, structured-schema], limitation: historical FAIL is preserved but not imported as current state}
+  - {id: chaad-invalid-validation-export, type: METRIC_RECORD, path: artifacts/EXP-CHAAD-001/validation_predictions.csv, requirements: [], verifiers: [file-checksum], classification: INVALID}
+  - {id: chaad-corrected-validation-export, type: METRIC_RECORD, path: artifacts/EXP-CHAAD-001/validation_predictions_corrected.csv, requirements: [], verifiers: [file-checksum], classification: CURRENT_PROVISIONAL}
+  - {id: chaad-export-correction-audit, type: AUDIT_REPORT, path: artifacts/EXP-CHAAD-001/prediction_export_validation.json, requirements: [], verifiers: [file-checksum, structured-schema]}
+missing_requirements:
+  dataset_license_identity: Authoritative license is known, but local corpus identity is not matched to release checksums.

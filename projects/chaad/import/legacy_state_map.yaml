@@ -1,0 +1,9 @@
+api_version: ros.dev/v1
+kind: LegacyStateMap
+claims:
+  - {claim: PMPS-01 completed, classification: CONTRADICTED, imported_state: BLOCKED}
+  - {claim: publication package ready, classification: CONTRADICTED, imported_state: NOT_READY}
+  - {claim: camera-ready complete, classification: UNVERIFIED, imported_state: NOT_IMPORTED}
+  - {claim: legacy ROC-AUC 0.9999997, classification: SUPERSEDED, imported_state: LEGACY_INVALID_FOR_CURRENT_PROTOCOL}
+  - {claim: original validation export is valid, classification: INVALID, imported_state: PRESERVED_INVALID}
+  - {claim: corrected validation ROC-AUC 0.6002609445, classification: SUPPORTED, imported_state: PROVISIONAL_VALIDATION_ONLY}

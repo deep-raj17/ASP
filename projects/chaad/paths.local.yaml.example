@@ -1,0 +1,4 @@
+# Copy to paths.local.yaml; the real file is local-only and must not be committed.
+CHAAD_REPOSITORY_ROOT: "${CHAAD_REPOSITORY_ROOT}"
+CHAAD_DATASET_ROOT: "${CHAAD_DATASET_ROOT}"
+ROS_WORKSPACE_ROOT: "${ROS_WORKSPACE_ROOT}"

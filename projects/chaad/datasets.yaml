@@ -1,0 +1,24 @@
+api_version: ros.dev/v1
+kind: DatasetBindings
+datasets:
+  - id: mimii-local-snapshot
+    family: MIMII
+    local_path_key: CHAAD_DATASET_ROOT
+    manifest: ../../metadata/dataset_manifest.csv
+    manifest_sha256: 7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136
+    file_count: 53046
+    size_bytes: 135802003680
+    version: UNVERIFIED_LOCAL_IDENTITY
+    authoritative_candidate:
+      release: public 1.0
+      doi: 10.5281/zenodo.3384388
+      license: CC-BY-SA-4.0
+    identity_status: BLOCKED
+    reason: Local files have not been matched to the authoritative release checksums.
+    integrity_status: VERIFIED_CURRENT_FILES
+    integrity_evidence: ../../migration/chaad/remediation/pmps01_dataset_audit_20260724.json
+splits:
+  protocol: machine-independent
+  train: [id_04]
+  validation: [id_00, id_02]
+  test: [id_06]

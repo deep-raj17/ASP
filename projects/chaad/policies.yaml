@@ -1,0 +1,19 @@
+api_version: ros.dev/v1
+kind: PolicyProfile
+metadata:
+  id: chaad-import-integrity-v1
+  extends: ros-core-research-integrity-v1
+spec:
+  legacy_evidence: append-only
+  automatic_gate_approval: prohibited
+  human_approval_required:
+    - experiment_rerun
+    - dataset_mutation
+    - model_release
+    - publication_claim
+    - external_sharing
+  dataset_license: verify-authoritative-release-before-sharing
+  checkpoints: checksum-and-retain
+  publication_claims: verified-gates-only
+  sensitive_paths: redact-from-public-exports
+  artifact_retention: indefinite-unless-approved-tombstone

@@ -1,0 +1,12 @@
+api_version: ros.dev/v1
+kind: ModuleBindings
+enabled:
+  - benchmarking
+  - statistics
+  - explainability
+disabled:
+  - commercialization
+  - deployment
+  - grant
+  - thesis
+compatibility_status: DECLARED_NOT_EXECUTED

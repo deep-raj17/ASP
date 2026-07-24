@@ -1,0 +1,14 @@
+requirement_id,requirement_description,required_evidence_types,discovered_evidence,verification_record,status,failure_reason,missing_item,contradiction,policy_exception,recommended_next_action
+repository_inventory,Repository inventory complete,AUDIT_REPORT,chaad-repository-inventory,file-checksum;structured-schema,SATISFIED,,,,,Retain checksum
+dataset_inventory,Dataset inventory complete,DATASET_MANIFEST;AUDIT_REPORT,chaad-dataset-inventory;chaad-dataset-manifest,file-checksum;structured-schema,SATISFIED,,,,,Retain manifest
+dataset_integrity,All WAVs readable finite and current hashes match,AUDIT_REPORT,chaad-dataset-integrity-full-20260724,file-checksum;structured-schema,SATISFIED,,,Historical partial report remains preserved,,Retain full audit checksum
+dataset_license_identity,Local corpus tied to authoritative version and license,EXTERNAL_REFERENCE;DATASET_MANIFEST,,none,BLOCKED,,Original archive checksums or download provenance,Directory structure matches public 1.0 but is not cryptographic identity proof,,Provide archives/download receipt or authoritative per-file checksums
+checkpoint_inventory,Checkpoint inventory complete,AUDIT_REPORT;MODEL_CHECKPOINT,chaad-checkpoint-registry,file-checksum;structured-schema,SATISFIED,,,,,Retain linkage
+environment_capture,Environment captured,ENVIRONMENT_RECORD,chaad-environment,file-checksum;structured-schema,SATISFIED,,,,,Retain lock evidence
+configuration_capture,Configuration captured,CONFIGURATION,chaad-configuration,file-checksum;structured-schema,SATISFIED,,,,,Retain snapshot
+git_capture,Git state captured,SOURCE_REVISION,chaad-git-snapshot,file-checksum;structured-schema,SATISFIED,,,,,Retain dirty-state caveat
+experiment_registry,Experiment registry complete,EXPERIMENT_EXECUTION,chaad-experiment-registry,file-checksum;structured-schema,SATISFIED,,,,,Keep incomplete and provisional states
+model_card,Model card complete,PUBLICATION_ARTIFACT,chaad-model-card,file-checksum,SATISFIED,,,,,Keep limitations
+dataset_card,Dataset card complete,PUBLICATION_ARTIFACT,chaad-dataset-card,file-checksum,SATISFIED,,,,,Update only through superseding version
+governance,Governance complete,PUBLICATION_ARTIFACT,chaad-governance,file-checksum,SATISFIED,,,,,Enforce approval policy
+publication_baseline,Publication baseline complete,PUBLICATION_ARTIFACT,chaad-publication-baseline,file-checksum,SATISFIED,,,,,Do not treat baseline as readiness

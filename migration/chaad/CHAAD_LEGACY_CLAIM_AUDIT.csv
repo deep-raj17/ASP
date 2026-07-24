@@ -1,0 +1,17 @@
+claim_id,claim,classification,evidence,reason,current_treatment
+LEGACY-001,Repository is frozen,CONTRADICTED,git status,Working tree is dirty,Preserve dirty-state provenance
+LEGACY-002,PMPS-01 completed,CONTRADICTED,pmps01_gate.json and machine evaluation,Two required evidence groups are missing,PMPS-01 BLOCKED
+LEGACY-003,Dataset has no cross-split SHA duplicates,SUPPORTED_NOT_FULLY_VERIFIED,duplicate_hash_report.csv,Existing manifest audit is present but full corpus was being rehashed,Retain scoped claim
+LEGACY-004,Machine-independent split integrity,VERIFIED,metadata/dataset_manifest.csv,Machine IDs are disjoint by configured split,Accept within manifest scope
+LEGACY-005,Training is exactly reproducible,UNVERIFIED,EXP-CHAAD-001 provenance,Dirty training patch and full environment lock are unavailable,Do not claim exact reproduction
+LEGACY-006,Legacy ROC-AUC is 0.9999997,SUPERSEDED,pre_validation_backup/eval_report.json,Unknown older split and validation-only scope,Preserve as legacy
+LEGACY-007,Original EXP-CHAAD-001 export is valid,INVALID,prediction_export_validation.json,30 duplicate IDs and 60 affected rows,Preserve invalid artifact
+LEGACY-008,Corrected validation ROC-AUC is 0.6002609445,SUPPORTED_NOT_FULLY_VERIFIED,validation_predictions_corrected.csv,Validation-only provisional result,Import as provisional
+LEGACY-009,Held-out test result exists,MISSING_EVIDENCE,CURRENT_STATE.md,Test split has not been evaluated,Do not import a test result
+LEGACY-010,CHAAD beats baselines,MISSING_EVIDENCE,CURRENT_STATE.md,Baseline execution is not complete,Unsupported
+LEGACY-011,Explainability is complete,MISSING_EVIDENCE,CURRENT_STATE.md,Only plans or components exist,Unsupported
+LEGACY-012,Manuscript is ready,CONTRADICTED,go_nogo_report.json,Publication audit is conditional and incomplete,Not ready
+LEGACY-013,Submission is ready,CONTRADICTED,go_nogo_report.json,Required gates are unchecked,Not ready
+LEGACY-014,Camera-ready package exists,UNVERIFIED,repository inventory,No verified package was found,Not imported
+LEGACY-015,Manifest sidecar mismatch is current,SUPERSEDED,current file hash,Current sidecar matches current manifest; change origin unknown,Preserve contradiction
+LEGACY-016,Publication lifecycle is complete,CONTRADICTED,PMPS machine state,PMPS-01 is BLOCKED,Reject

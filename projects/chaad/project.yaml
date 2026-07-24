@@ -1,0 +1,33 @@
+api_version: ros.dev/v1
+kind: Project
+metadata:
+  id: chaad
+  display_name: Configurable Hybrid Acoustic Anomaly Detection
+  adapter_version: 1.0.0
+spec:
+  description: Reliability-aware acoustic anomaly detection research project.
+  ros_compatibility: ">=1.0.0,<2.0.0"
+  repository:
+    identity: github.com/deep-raj17/ASP
+    local_path_config: paths.local.yaml
+  owner: project-owner
+  research_domain: acoustic anomaly detection
+  workflow:
+    id: PMPS
+    version: 1.0.0
+    definition: ../../ros/specs/workflows/pmps-1.0.0.yaml
+  enabled_modules: [benchmarking, statistics, explainability]
+  disabled_modules: [commercialization, deployment, grant, thesis]
+  datasets: [mimii-local-snapshot]
+  policies: [chaad-import-integrity-v1]
+  security_classification: internal-research
+  retention_policy: preserve-research-history
+  imported_state:
+    state: BLOCKED
+    gate: PMPS-01
+    reason_code: REQUIRED_EVIDENCE_MISSING
+    publication_ready: false
+  import:
+    timestamp: "2026-07-24T09:52:54Z"
+    source: ROS-PROJECT-01 evidence migration
+    correlation_id: ros-project-01-chaad-20260724

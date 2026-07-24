@@ -1,0 +1,19 @@
+{
+  "checkpointed_at": "2026-07-24T10:13:48.348921+00:00",
+  "completed_at": "2026-07-24T10:13:49.190342+00:00",
+  "elapsed_seconds_current_session": 874.89,
+  "errors": [],
+  "expected_files": 53046,
+  "files_per_second_current_session": 60.637,
+  "finite_files": 53046,
+  "manifest": "dataset_manifest.csv",
+  "manifest_sha256": "7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136",
+  "metadata_match_files": 53046,
+  "processed_files": 53046,
+  "readable_files": 53046,
+  "schema_version": "ros.pmps01-dataset-audit/v1",
+  "sha256_match_files": 53046,
+  "started_at": "2026-07-24T09:59:14.302388+00:00",
+  "status": "VERIFIED",
+  "total_bytes_read": 135802003680
+}
