@@ -1,0 +1,12 @@
+requirement,component,test,status
+Atomic append,sqlite.py,test_registry.py,IMPLEMENTED
+No update/delete,SQLite triggers,test_registry.py,IMPLEMENTED
+Hash chain,verify_integrity,test_registry.py,IMPLEMENTED
+Views,rebuild_view,test_registry.py,IMPLEMENTED
+Import/export,export_bundle/import_bundle,test_registry.py,IMPLEMENTED
+Concurrency/idempotency,append,test_registry.py,IMPLEMENTED
+Metadata integrity,verify_integrity,test_integrity_detects_metadata_tampering,VERIFIED
+Lifecycle operations,deprecate/revoke/tombstone,test_lifecycle_latest_and_reference_queries,VERIFIED
+Cross-registry queries,query_by_reference/query_by_payload,test_lifecycle_latest_and_reference_queries,VERIFIED
+Validated atomic import,import_bundle,test_import_rejects_tamper_before_mutation_and_imports_lineage,VERIFIED
+Restart reconstruction,verify_integrity,test_integration_cross_registry_history_survives_restart,VERIFIED
