@@ -1,0 +1,32 @@
+command,subcommand,inputs,service_called,mutation_status,dry_run_support,approval_requirement,exit_behavior,status
+init,,workspace,RosServices.init,creates workspace directories,yes,no,0 or 20,IMPLEMENTED
+project,add,manifest,RosServices.project_add,appends project record,yes,policy-dependent,0/3/11,IMPLEMENTED
+project,show,project id,RosServices.project_show,read-only,n/a,no,0/2/4,IMPLEMENTED
+project,list,,RosServices.project_list,read-only,n/a,no,0/10,IMPLEMENTED
+project,validate,manifest,RosServices.project_validate,read-only,n/a,no,0/3,IMPLEMENTED
+project,history,project id,RosServices.project_history,read-only,n/a,no,0/10,IMPLEMENTED
+project,enable-module,module id,none,none,yes,policy-dependent,3,DEFERRED_FAIL_CLOSED
+project,disable-module,module id,none,none,yes,policy-dependent,3,DEFERRED_FAIL_CLOSED
+status,,project id,RosServices.status,read-only,n/a,no,0/4/10,IMPLEMENTED
+verify,registry/all,,RosServices.verify_registry,read-only,n/a,no,0/10,IMPLEMENTED
+verify,project,manifest,RosServices.project_validate,read-only,n/a,no,0/2/3,IMPLEMENTED
+verify,workflow,definition,RosServices.workflow_validate,read-only,n/a,no,0/2/3,IMPLEMENTED
+verify,evidence/artifact,reference,none,none,n/a,no,3,DEFERRED_FAIL_CLOSED
+run,,workflow definition and instance,RosServices.run_workflow,creates/transitions instance,yes,policy-dependent,0/3/5/11,IMPLEMENTED
+resume,,instance id,none,none,yes,policy-dependent,3,DEFERRED_FAIL_CLOSED
+gate,requirements,workflow definition,RosServices.gate_requirements,read-only,n/a,no,0/3,IMPLEMENTED
+gate,show/list/history/evaluate/explain,value,none,none,evaluate only,policy-dependent,3,DEFERRED_FAIL_CLOSED
+workflow,validate,definition,RosServices.workflow_validate,read-only,n/a,no,0/3,IMPLEMENTED
+workflow,list/show/start/history/plan/cancel,value,none,none,mutations yes,policy-dependent,3,DEFERRED_FAIL_CLOSED
+evidence,add/show/list/verify/lineage/history/supersede/integrity,value,none,none,mutations yes,policy-dependent,3,DEFERRED_FAIL_CLOSED
+registry,list,,SQLiteRegistry.history,read-only,n/a,no,0/10,IMPLEMENTED
+registry,show,record id,SQLiteRegistry.get,read-only,n/a,no,0/4,IMPLEMENTED
+registry,history,,SQLiteRegistry.history,read-only,n/a,no,0/10,IMPLEMENTED
+registry,verify,,RosServices.verify_registry,read-only,n/a,no,0/10,IMPLEMENTED
+registry,export,path,RosServices.registry_export,writes validated bundle,yes,no,0/3/10,IMPLEMENTED
+registry,import,path,RosServices.registry_import,atomic append,yes,policy-dependent,0/3/10/11,IMPLEMENTED
+registry,rebuild-view,registry name,SQLiteRegistry.rebuild_view,read-only derivation,n/a,no,0/3/10,IMPLEMENTED
+module,list/show/validate/compatibility/enable/disable,value,none,none,mutations yes,policy-dependent,3,DEFERRED_FAIL_CLOSED
+doctor,,workspace,RosServices.verify_registry,read-only,n/a,no,0/10,IMPLEMENTED
+export,,path,RosServices.registry_export,writes validated bundle,yes,no,0/3/10,IMPLEMENTED
+archive,,project id and approval,RosServices.archive,appends tombstone,yes,required,0/4/8/11,IMPLEMENTED
