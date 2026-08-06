@@ -1,0 +1,17 @@
+claim_id,claim,status,evidence_path,publication_action
+CLM-001,CHAAD implements a hybrid acoustic anomaly detector,SUPPORTED,models/hybrid_model.py,retain_as_implementation_claim
+CLM-002,The manifest implements machine-independent splits,SUPPORTED,metadata/dataset_manifest.csv,retain_with_scope
+CLM-003,The preserved candidate achieved validation ROC-AUC 0.6002609445,SUPPORTED,artifacts/EXP-CHAAD-001/validation_predictions_corrected.csv,retain_as_provisional_validation_fact
+CLM-004,The reliability-aware fusion module is implemented,SUPPORTED,models/reliability.py,retain_as_implementation_claim_only
+CLM-005,Reliability-aware fusion improves anomaly detection,UNTESTED,models/reliability.py,do_not_claim
+CLM-006,Sample-dependent fusion outperforms fixed fusion,UNTESTED,,do_not_claim
+CLM-007,Machine/noise conditioning improves performance,UNTESTED,,do_not_claim
+CLM-008,CHAAD outperforms fair simple baselines,UNSUPPORTED,artifacts/baselines/diagnostic_baselines.json,do_not_claim
+CLM-009,CHAAD outperforms a fair neural baseline,UNTESTED,,do_not_claim
+CLM-010,Results are robust across seeds,UNTESTED,,do_not_claim
+CLM-011,Performance generalizes to the protected test machine,UNTESTED,,do_not_claim
+CLM-012,Reported differences are statistically significant,UNTESTED,,do_not_claim
+CLM-013,The extracted corpus has complete official archive provenance,CONTRADICTED,reports/phase_1/DATASET_PUBLICATION_STATUS.md,disclose_limitation
+CLM-014,The preserved validation export is identity-complete,SUPPORTED,artifacts/EXP-CHAAD-001/prediction_export_validation.json,retain_with_corrected_export_path
+CLM-015,The original validation export is publication-usable,CONTRADICTED,artifacts/EXP-CHAAD-001/validation_predictions.csv,exclude
+CLM-016,Production calibrated inference is currently available,CONTRADICTED,TASK_STATUS.md,do_not_claim_until_calibration_restored

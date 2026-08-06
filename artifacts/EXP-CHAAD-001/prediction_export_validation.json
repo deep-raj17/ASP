@@ -1,0 +1,37 @@
+{
+  "checkpoint_path": "checkpoints\\best_model.pt",
+  "checkpoint_sha256": "7d58293ea5138b730811bb261de0b971a8a5e4e52665961b48f2f4a4d85ad7e9",
+  "expected_validation_samples": 28254,
+  "exported_prediction_rows": 28254,
+  "unique_sample_ids": 28254,
+  "duplicate_sample_id_count": 0,
+  "duplicate_row_count": 0,
+  "missing_id_count": 0,
+  "invalid_label_count": 0,
+  "non_finite_score_count": 0,
+  "non_validation_split_count": 0,
+  "class_counts": {
+    "0.0": 22608,
+    "1.0": 5646
+  },
+  "machine_type_counts": {
+    "fan": 7368,
+    "pump": 6795,
+    "slider": 8277,
+    "valve": 5814
+  },
+  "machine_id_counts": {
+    "id_00": 14292,
+    "id_02": 13962
+  },
+  "split_values": [
+    "val"
+  ],
+  "score_minimum": 0.07157638669013977,
+  "score_maximum": 0.9690729975700378,
+  "score_mean": 0.5080875684581356,
+  "score_standard_deviation": 0.16301568954903076,
+  "export_timestamp": "2026-07-24T05:57:32.373410+00:00",
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "status": "PASS"
+}

@@ -1,0 +1,31 @@
+MIMII Calibration Report
+================================================================================
+Generated at       : 2026-05-15T10:46:04
+Source file        : checkpoints\detector_calibration.pt
+Normal samples     : 37685
+Embedding dimension: 256
+
+Calibration Statistics
+--------------------------------------------------------------------------------
+Reconstruction error mean : 0.002762
+Reconstruction error std  : 0.001620
+Embedding distance mean   : 0.011399
+Embedding distance std    : 0.010467
+Mahalanobis distance mean : 13.737991
+Mahalanobis distance std  : 1.984088
+Contrastive distance mean : 0.003478
+Contrastive distance std  : 0.001438
+
+Stored Objects
+--------------------------------------------------------------------------------
+ref_mean        : shape=[256], dtype=float32
+ref_cov_inv     : shape=[256, 256], dtype=float32
+ref_pool        : shape=[37685, 256], dtype=float32
+recon_mu        : 0.002762425923720002
+recon_sigma     : 0.0016201996360144019
+embed_mu        : 0.011398599483072758
+embed_sigma     : 0.01046682310981512
+mahal_mu        : 13.737991333007812
+mahal_sigma     : 1.9840880732400512
+contra_mu       : 0.0034780786372721195
+contra_sigma    : 0.0014378755469045042

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "summary": "Calibration fitted on train_normal split only via AnomalyDetector.fit_reference_distribution",
+  "source_split": "train_normal",
+  "test_data_used": false,
+  "file_reference": "calibrate.py lines 75-76, inference/detector.py lines 84-152"
+}

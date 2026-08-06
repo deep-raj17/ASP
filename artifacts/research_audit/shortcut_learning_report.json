@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-07-23T09:50:52",
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "manifest_samples": 53046,
+  "checks": [
+    {
+      "check_name": "metadata_only_baseline",
+      "logistic_regression_auc": 0.5895273162752079,
+      "logistic_regression_auc_std": 0.008634017296695782,
+      "random_forest_auc": 0.6330556200803593,
+      "shortcut_threshold": 0.7,
+      "shortcut_detected": false,
+      "interpretation": "Metadata alone cannot strongly predict labels. Low shortcut risk."
+    },
+    {
+      "check_name": "feature_permutation",
+      "status": "SKIPPED",
+      "reason": "No model checkpoint provided"
+    },
+    {
+      "check_name": "cross_machine_generalization",
+      "per_machine_stats": {
+        "fan": {
+          "total_samples": 15639,
+          "abnormal_samples": 4425,
+          "abnormal_ratio": 0.28294647995396127
+        },
+        "pump": {
+          "total_samples": 12615,
+          "abnormal_samples": 1368,
+          "abnormal_ratio": 0.1084423305588585
+        },
+        "slider": {
+          "total_samples": 12282,
+          "abnormal_samples": 2670,
+          "abnormal_ratio": 0.21739130434782608
+        },
+        "valve": {
+          "total_samples": 12510,
+          "abnormal_samples": 1437,
+          "abnormal_ratio": 0.11486810551558753
+        }
+      },
+      "ratio_disparity": 2.6091884829087877,
+      "imbalance_concern": true,
+      "interpretation": "Abnormal ratios vary 2.6x across machines. Model may learn machine-specific priors."
+    },
+    {
+      "check_name": "signal_shortcuts",
+      "per_score_auc": {},
+      "max_single_score_auc": 0.5,
+      "single_score_concern": false,
+      "interpretation": "Single score N/A achieves AUC 0.5000. Acceptable."
+    },
+    {
+      "check_name": "recording_artifacts",
+      "artifacts_found": false,
+      "concerns": [],
+      "interpretation": "No recording-level artifacts detected."
+    }
+  ],
+  "overall": {
+    "shortcut_detected": false,
+    "verdict": "NO SHORTCUT DETECTED - Model likely uses genuine acoustic features."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "experiment_id": "EXP-CHAAD-001",
+  "status": "OFFICIAL PROVISIONAL RESULT",
+  "classification": "Provisional - pipeline not yet independently verified",
+  "checkpoint_path": "checkpoints/best_model.pt",
+  "preserved_checkpoint_path": "artifacts/EXP-CHAAD-001/checkpoint.pt",
+  "checkpoint_sha256": "7d58293ea5138b730811bb261de0b971a8a5e4e52665961b48f2f4a4d85ad7e9",
+  "checkpoint_copy_verified": true,
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "git_branch": "blackboxai/research-integrity-audit",
+  "working_tree_status_at_verification": {
+    "status": "DIRTY",
+    "porcelain_entries": 109,
+    "entries_with_staged_changes": 69,
+    "entries_with_unstaged_changes": 13,
+    "untracked_entries": 38,
+    "note": "Counts were captured before this verification updated preservation records. Some paths contain both staged and unstaged changes, so category counts overlap."
+  },
+  "dataset_manifest_path": "metadata/dataset_manifest.csv",
+  "dataset_manifest_sha256": "7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136",
+  "dataset_manifest_sidecar_sha256": "7c689508cbed4d49d05ec2891b315b27722ff01c8a62b6b1c4f610e3afcd0136",
+  "dataset_manifest_sidecar_matches": false,
+  "split_protocol": "machine_independent",
+  "random_seed": 42,
+  "training_command_reported": "python train.py",
+  "training_command_verification": "UNRESOLVED - no shell transcript or command line was preserved at run start",
+  "run_start_provenance_path": "artifacts/experiment_provenance.json",
+  "run_start_timestamp_utc": "2026-07-21T12:05:03.484644+00:00",
+  "timestamp": "2026-07-23T09:30:00+05:30",
+  "preservation_verified_at": "2026-07-24T09:59:32.1271961+05:30",
+  "notes": [
+    "Training completed 100 epochs",
+    "Source and preserved checkpoint hashes match",
+    "The best checkpoint contains epoch 6 and was selected by minimum validation loss",
+    "This preservation record remains an OFFICIAL PROVISIONAL RESULT"
+  ],
+  "unresolved_provenance": [
+    "Exact original shell command and command-line environment",
+    "Complete training-time configuration; run-start provenance captured only selected fields",
+    "Exact dirty working-tree patch used for training; the recorded Git commit alone does not identify uncommitted source changes",
+    "Training GPU identity, OS build, NVIDIA driver, cuDNN version, and exact dependency lock",
+    "Dataset release/version and source URL",
+    "The repository manifest checksum sidecar does not match the current manifest bytes; the sidecar was left unchanged for audit visibility"
+  ]
+}

@@ -1,0 +1,13 @@
+archive_name,source,local_path,download_started,download_completed,size_bytes,status,retry_count,notes
+-6_dB_fan.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\-6_dB_fan.zip,,,10878096548,BLOCKED_STORAGE,0,Download not started
+-6_dB_pump.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\-6_dB_pump.zip,,,8236951723,BLOCKED_STORAGE,0,Download not started
+6_dB_pump.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\6_dB_pump.zip,,,7659077508,BLOCKED_STORAGE,0,Download not started
+-6_dB_slider.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\-6_dB_slider.zip,,,7951254230,BLOCKED_STORAGE,0,Download not started
+6_dB_slider.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\6_dB_slider.zip,,,7129464289,BLOCKED_STORAGE,0,Download not started
+-6_dB_valve.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\-6_dB_valve.zip,,,8037536346,BLOCKED_STORAGE,0,Download not started
+6_dB_valve.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\6_dB_valve.zip,,,6915951837,BLOCKED_STORAGE,0,Download not started
+0_dB_fan.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\0_dB_fan.zip,,,10411902283,BLOCKED_STORAGE,0,Download not started
+0_dB_pump.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\0_dB_pump.zip,,,7869431302,BLOCKED_STORAGE,0,Download not started
+0_dB_slider.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\0_dB_slider.zip,,,7508958315,BLOCKED_STORAGE,0,Download not started
+0_dB_valve.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\0_dB_valve.zip,,,7486536802,BLOCKED_STORAGE,0,Download not started
+6_dB_fan.zip,https://zenodo.org/records/3384388,E:\MIMII_VERIFIED_ACQUISITION\archives\6_dB_fan.zip,,,10158673161,BLOCKED_STORAGE,0,Download not started

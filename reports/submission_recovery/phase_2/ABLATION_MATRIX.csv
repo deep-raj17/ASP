@@ -1,0 +1,11 @@
+ablation_id,change,requires_backbone_training,comparison,claim_tested,planned_seeds
+ABL-EQUAL,replace gate with equal weights,no,CHAAD-RA vs BL-EQUAL,sample-dependent fusion value,"42;123;2026"
+ABL-GLOBAL,replace gate with optimized global weights,no,CHAAD-RA vs BL-GLOBAL,sample dependence beyond global learning,"42;123;2026"
+ABL-UNCOND,remove machine and noise conditioning,no,CHAAD-RA vs BL-UNCOND,metadata conditioning value,"42;123;2026"
+ABL-NO-MACHINE,remove machine conditioning only,no,CHAAD-RA vs ABL-NO-MACHINE,machine conditioning value,"42;123;2026"
+ABL-NO-NOISE,remove noise conditioning only,no,CHAAD-RA vs ABL-NO-NOISE,noise conditioning value,"42;123;2026"
+ABL-NO-EMB,remove embedding summary from gate,no,CHAAD-RA vs ABL-NO-EMB,audio representation conditioning value,"42;123;2026"
+ABL-BRANCHES,use each anomaly branch alone,no,CHAAD-RA vs four single-signal baselines,multisignal fusion value,"42;123;2026"
+ABL-NO-AE,set reconstruction loss weight to zero,yes,full training vs no-AE training,autoencoder objective value,"42;123;2026"
+ABL-NO-CONTRA,set contrastive loss weight to zero,yes,full training vs no-contrastive training,contrastive objective value,"42;123;2026"
+ABL-SIMPLEST,select simplest competitive prespecified comparator,conditional,CHAAD-RA vs strongest simple comparator,complexity justification,"42;123;2026"

@@ -1,0 +1,31 @@
+api_version: ros.dev/v1
+kind: DataGovernanceGate
+metadata:
+  id: ros-data-01-chaad
+  stage: ROS-DATA-01
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_COMPLETE
+  parts:
+    part_1: BLOCKED
+    part_2: BLOCKED
+    part_3: BLOCKED
+    part_4: BLOCKED
+  prerequisites:
+    ROS-CORE: COMPLETE
+    ROS-PROJECT: INCOMPLETE
+    ROS-PUB: INCOMPLETE
+    ROS-DEPLOY: BLOCKED
+    ROS-SEC: BLOCKED
+  evidence:
+    ros_sec_01: publication/ROS_SEC_01_GATE.yaml
+    project_state: migration/chaad/CHAAD_STATE_REPORT.md
+  outputs:
+    data_governance: NOT_STARTED
+    provenance_framework: NOT_STARTED
+    lifecycle_controls: NOT_STARTED
+    FAIR_assessment: NOT_STARTED
+  next_action: Complete all upstream ROS domains before data-lifecycle assessment.

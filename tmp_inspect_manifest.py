@@ -1,0 +1,12 @@
+import pandas as pd
+m = pd.read_csv('metadata/dataset_manifest.csv')
+print('ROWS', len(m))
+print('COLUMNS', list(m.columns))
+print('SPLITS', m['split'].value_counts().to_dict())
+print('LABELS', m['label'].value_counts().to_dict())
+print('MACHINE_TYPES', m['machine_type'].value_counts().to_dict())
+print('NOISE', m['noise_condition'].value_counts().to_dict())
+train_ids = set(m[m['split']=='train']['machine_id'])
+val_ids = set(m[m['split']=='val']['machine_id'])
+print('OVERLAP_MACHINE_IDS', sorted(train_ids & val_ids))
+print(m.head(3).to_string())

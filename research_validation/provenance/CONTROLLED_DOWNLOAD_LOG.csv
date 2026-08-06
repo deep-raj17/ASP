@@ -1,0 +1,3 @@
+﻿archive_name,source,local_path,download_started,download_completed,size_bytes,status,retry_count,notes
+-6_dB_fan.zip,https://zenodo.org/api/records/3384388/files/-6_dB_fan.zip/content,C:\MIMII_VERIFIED_ACQUISITION\archives\-6_dB_fan.zip,,,,FAILED_STALLED,0,PowerShell transfer stalled at zero-byte part; preserved failed attempt
+-6_dB_fan.zip,https://zenodo.org/api/records/3384388/files/-6_dB_fan.zip/content,C:\MIMII_VERIFIED_ACQUISITION\archives\-6_dB_fan.zip,,,0,FAILED_STALLED,3,curl retry stalled at zero bytes; preserved attempt

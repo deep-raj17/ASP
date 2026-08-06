@@ -1,0 +1,13 @@
+machine_type,split,total_samples,normal_count,abnormal_count,machine_ids
+fan,val,7368,5070,2298,"['id_00', 'id_02']"
+fan,train,4143,3099,1044,['id_04']
+fan,test,4128,3045,1083,['id_06']
+pump,val,6795,6033,762,"['id_00', 'id_02']"
+pump,train,2406,2106,300,['id_04']
+pump,test,3414,3108,306,['id_06']
+slider,val,8277,6408,1869,"['id_00', 'id_02']"
+slider,train,2136,1602,534,['id_04']
+slider,test,1869,1602,267,['id_06']
+valve,val,5814,5097,717,"['id_00', 'id_02']"
+valve,train,3360,3000,360,['id_04']
+valve,test,3336,2976,360,['id_06']

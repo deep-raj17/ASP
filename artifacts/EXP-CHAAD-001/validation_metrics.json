@@ -1,0 +1,29 @@
+{
+  "experiment_id": "EXP-CHAAD-001",
+  "split": "validation",
+  "source": "checkpoints/epoch_100.pt",
+  "metrics": {
+    "roc_auc": 0.5232595824060724,
+    "pr_auc": 0.21983239904077634,
+    "eer": 0.4573602264685067,
+    "accuracy_at_05": 0.4014298860338359,
+    "balanced_accuracy_at_05": 0.5432631363316043,
+    "accuracy_at_youden": 0.5395696184611029,
+    "precision_at_youden": 0.22864303088376206,
+    "recall_at_youden": 0.5494155154091392,
+    "f1_at_youden": 0.3229063654817051,
+    "confusion_matrix_at_youden": [[12143, 10465], [2544, 3102]],
+    "train_loss": 1.0502191325451464,
+    "validation_loss": 3.7270186233628513
+  },
+  "threshold": {
+    "fixed_05": 0.5,
+    "youden": 0.8449283838272095
+  },
+  "interpretation": {
+    "roc_auc": "Near random (0.5 = random, 1.0 = perfect)",
+    "balanced_accuracy": "Near random (0.5 = random, 1.0 = perfect)",
+    "eer": "High error rate (0.0 = perfect, 0.5 = random)",
+    "overall": "Model shows no meaningful discrimination capability"
+  }
+}

@@ -1,0 +1,4 @@
+filename,attempt_file,size_bytes,failure_class,details,preserved_path
+-6_dB_fan.zip,-6_dB_fan.zip.failed.20260727T045342Z,158846340,Network timeout,Initial PowerShell transfer stalled,archives/quarantine/-6_dB_fan.zip.failed.20260727T045342Z
+-6_dB_fan.zip,-6_dB_fan.zip.failed.20260727T045647Z,117424128,Network timeout,Curl retry stalled,archives/quarantine/-6_dB_fan.zip.failed.20260727T045647Z
+-6_dB_fan.zip,-6_dB_fan.zip.failed.resume.20260727T,223498676,Network timeout,HTTP range resume timed out after 120 seconds,archives/quarantine/-6_dB_fan.zip.failed.resume.20260727T

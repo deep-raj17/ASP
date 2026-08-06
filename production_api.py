@@ -33,7 +33,7 @@ from flask import Flask, request, jsonify
 sys.path.insert(0, str(Path(__file__).parent))
 
 from config import cfg
-from paths import resolve_model_checkpoint, calibration_path
+from paths import calibration_path, require_inference_artifacts
 from models.hybrid_model import HybridAnomalyModel
 from inference.production_detector import ProductionDetector
 from utils.audio_utils import AudioProcessor, pad_or_trim
@@ -77,21 +77,15 @@ def initialize():
     # Load model
     model = HybridAnomalyModel(cfg.model).to(DEVICE)
 
-    ckpt_path, _ = resolve_model_checkpoint(prefer_fp16_on_cuda=True)
-    if os.path.exists(ckpt_path):
-        epoch, loaded_prec = load_model_weights(model, ckpt_path, DEVICE)
-        logger.info(f"Loaded checkpoint ({loaded_prec}) from {ckpt_path} epoch={epoch}")
-    else:
-        logger.warning(f"No checkpoint found at {ckpt_path}")
+    ckpt_path, _ = require_inference_artifacts()
+    epoch, loaded_prec = load_model_weights(model, ckpt_path, DEVICE)
+    logger.info(f"Loaded checkpoint ({loaded_prec}) from {ckpt_path} epoch={epoch}")
 
     use_compile = os.environ.get("APP_USE_TORCH_COMPILE", "0") == "1"
     DETECTOR = ProductionDetector(model, cfg, use_compiled=use_compile)
 
     calib_path = calibration_path()
-    if os.path.exists(calib_path):
-        DETECTOR.load_calibration(calib_path)
-    else:
-        logger.warning(f"No calibration found at {calib_path}")
+    DETECTOR.load_calibration(calib_path)
 
     PROCESSOR = AudioProcessor(cfg.data)
 

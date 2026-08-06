@@ -62,6 +62,24 @@ def calibration_path() -> str:
     return PATHS.detector_calibration
 
 
+def require_inference_artifacts() -> tuple[str, str]:
+    """Resolve and require the inputs needed for calibrated production inference."""
+    checkpoint_path, precision = resolve_model_checkpoint(prefer_fp16_on_cuda=True)
+    missing = [
+        path
+        for path in (checkpoint_path, PATHS.detector_calibration)
+        if not os.path.isfile(path)
+    ]
+    if missing:
+        formatted = ", ".join(os.path.relpath(path, PATHS.root) for path in missing)
+        raise FileNotFoundError(
+            "Production inference is unavailable because required artifacts are "
+            f"missing: {formatted}. Restore verified artifacts or run the explicitly "
+            "authorized training/calibration workflow."
+        )
+    return checkpoint_path, precision
+
+
 def artifacts_status() -> dict:
     """Human-readable status for logs and health checks."""
     fp32 = os.path.isfile(PATHS.best_model_fp32)

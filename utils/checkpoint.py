@@ -10,6 +10,8 @@ from typing import Tuple
 import torch
 import torch.nn as nn
 
+from utils.metrics import EvalMetrics
+
 
 def load_model_weights(
     model: nn.Module,
@@ -25,7 +27,10 @@ def load_model_weights(
     if not os.path.isfile(checkpoint_path):
         raise FileNotFoundError(f"Checkpoint not found: {checkpoint_path}")
 
-    state = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    # Checkpoints are data, not executable code. Restricted loading prevents
+    # arbitrary pickle globals from being instantiated from an untrusted file.
+    with torch.serialization.safe_globals([EvalMetrics]):
+        state = torch.load(checkpoint_path, map_location=device, weights_only=True)
     if isinstance(state, dict) and "model_state_dict" in state:
         model.load_state_dict(state["model_state_dict"])
         epoch = int(state.get("epoch", -1))

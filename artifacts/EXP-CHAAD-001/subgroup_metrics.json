@@ -1,0 +1,26 @@
+{
+  "machine_type_fan": {
+    "roc_auc": 0.4775425590900586,
+    "count": 7368
+  },
+  "machine_type_pump": {
+    "roc_auc": 0.6534684780513824,
+    "count": 6795
+  },
+  "machine_type_slider": {
+    "roc_auc": 0.5667710122245534,
+    "count": 8277
+  },
+  "machine_type_valve": {
+    "roc_auc": 0.5629793170101154,
+    "count": 5814
+  },
+  "machine_id_id_00": {
+    "roc_auc": 0.6341781021982458,
+    "count": 14292
+  },
+  "machine_id_id_02": {
+    "roc_auc": 0.5631477162619019,
+    "count": 13962
+  }
+}

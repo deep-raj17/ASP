@@ -1,0 +1,17 @@
+hash_scope,artifact,algorithm,hash_or_count,verification,status,limitation
+manifest,metadata/dataset_manifest.csv,SHA-256,7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136,Matches metadata/dataset_manifest.sha256,VERIFIED,Does not identify original archive
+corpus current files,manifest-listed WAV files,SHA-256,53046 matches,Full-corpus audit report,VERIFIED,Hashes are current extracted-file hashes only
+corpus readability,manifest-listed WAV files,decode/finite scan,53046 readable and finite,Full-corpus audit report,VERIFIED,No archive-level identity
+checkpoint,artifacts/EXP-CHAAD-001/checkpoint.pt,SHA-256,7d58293ea5138b730811bb261de0b971a8a5e4e52665961b48f2f4a4d85ad7e9,Preservation report,VERIFIED,Not a dataset identity hash
+official archive,-6_dB_fan.zip,MD5,f02ae808a58d84b6815b7ec38ff30879,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,-6_dB_pump.zip,MD5,d20b783a0ff9c93d58f452f98c37b112,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,-6_dB_slider.zip,MD5,49913eda7d37f182cbf8ed5c984140e0,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,-6_dB_valve.zip,MD5,fdfaf185fea61b21e11952a070a4ada7,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,0_dB_fan.zip,MD5,6354d1cc2165c52168f9ef1bcd9c7c52,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,0_dB_pump.zip,MD5,488748295c3f60b25de07b58fe75b049,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,0_dB_slider.zip,MD5,4d674c21474f0646ecd75546db6c0c4e,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,0_dB_valve.zip,MD5,178478eb0d11c79080a35562afbfdeee71,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,6_dB_fan.zip,MD5,0890f7d3c2fd8448634e69ff1d66dd47,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,6_dB_pump.zip,MD5,a09ba6060c10fc09cd4c8770213b0b9f,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,6_dB_slider.zip,MD5,838c2b3441858359c4704ef13a1b27ff,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison
+official archive,6_dB_valve.zip,MD5,fe5fb7c337cd701b1d31dc641e621892,Zenodo record,AVAILABLE_NOT_MATCHED,Local archive unavailable for comparison

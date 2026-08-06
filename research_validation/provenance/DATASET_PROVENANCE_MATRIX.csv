@@ -1,0 +1,14 @@
+field_id,provenance_field,claimed_value,verified_value,evidence_path,verification_method,status,conflict,blocking_effect,required_resolution
+dataset_name,MIMII,MIMII,MIMII,docs/DATASET_AND_SPLITS.md; migration/chaad/CHAAD_PROVENANCE_REPORT.md,Manifest structure and report review,VERIFIED,NO,none,
+dataset_release,public 1.0,public 1.0,public 1.0 claimed by official record; local linkage unavailable,migration/chaad/CHAAD_PROVENANCE_REPORT.md,Official record comparison and local identity review,PARTIALLY VERIFIED,YES,critical,Obtain archive receipt or authoritative checksums
+source,Zenodo DOI 10.5281/zenodo.3384388,Zenodo record,Zenodo record, migration/chaad/CHAAD_PROVENANCE_REPORT.md,Record citation review,VERIFIED,NO,none,
+license,CC BY-SA 4.0,CC BY-SA 4.0,Official release license; local acquisition linkage unavailable,migration/chaad/CHAAD_PROVENANCE_REPORT.md,License record review,PARTIALLY VERIFIED,YES,critical,Preserve license evidence and local release linkage
+file_count,53046,53046,53046,metadata/dataset_manifest.csv; migration/chaad/remediation/pmps01_dataset_audit_20260724.json,Manifest count and audit count comparison,VERIFIED,NO,none,
+machine_types,fan/pump/slider/valve,fan/pump/slider/valve,fan/pump/slider/valve,metadata/dataset_manifest.csv,Manifest enumeration,VERIFIED,NO,none,
+machine_ids,id_00/id_02/id_04/id_06,id_00/id_02/id_04/id_06,id_00/id_02/id_04/id_06,metadata/dataset_manifest.csv,Manifest enumeration,VERIFIED,NO,none,
+noise_conditions,-6_dB/0_dB/6_dB,-6_dB/0_dB/6_dB,-6_dB/0_dB/6_dB,metadata/dataset_manifest.csv,Manifest enumeration,VERIFIED,NO,none,
+labels,normal/abnormal,normal/abnormal,normal/abnormal,metadata/dataset_manifest.csv,Manifest enumeration,VERIFIED,NO,none,
+sampling_rate,16000,16000,16000 in manifest records,metadata/dataset_manifest.csv,Manifest field inspection,VERIFIED,NO,none,
+split_protocol,machine-independent,machine-independent,machine-independent,docs/DATASET_AND_SPLITS.md; utils/split_utils.py,Code and manifest review,VERIFIED,NO,none,
+acquisition_identity,extracted local corpus,unknown,unknown,migration/chaad/CHAAD_PROVENANCE_REPORT.md,Archive linkage review,UNAVAILABLE,NO,critical,Recover original archive or checksum evidence
+preprocessing_history,repository pipeline,documented,documented,docs/NORMALIZATION_PROTOCOL.md; config.py,Source and documentation review,PARTIALLY VERIFIED,NO,major,Freeze protocol before new experiments

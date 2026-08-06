@@ -1,0 +1,57 @@
+{
+  "experiment_id": "EXP-CHAAD-001",
+  "log_sources": [
+    "logs/events.out.tfevents.1784635505.nielit.8372.0",
+    "checkpoints/best_model.pt",
+    "checkpoints/epoch_100.pt"
+  ],
+  "final_epoch": 100,
+  "total_epochs": 100,
+  "final_metrics": {
+    "train_loss": 1.0502191325451464,
+    "validation_loss": 3.7270186233628513,
+    "validation_roc_auc": 0.5232595824060724,
+    "validation_pr_auc": 0.21983239904077634,
+    "validation_eer": 0.4573602264685067,
+    "accuracy_at_05": 0.4014298860338359,
+    "balanced_accuracy_at_05": 0.5432631363316043,
+    "youden_threshold": 0.8449283838272095,
+    "accuracy_at_youden": 0.5395696184611029,
+    "precision_at_youden": 0.22864303088376206,
+    "recall_at_youden": 0.5494155154091392,
+    "f1_at_youden": 0.3229063654817051,
+    "confusion_matrix_at_youden": [[12143, 10465], [2544, 3102]]
+  },
+  "best_epoch": 6,
+  "best_validation_metric": {
+    "name": "validation_loss",
+    "value": 2.270772919784451,
+    "direction": "minimize"
+  },
+  "best_checkpoint_metrics": {
+    "train_loss": 2.1655821800231934,
+    "validation_loss": 2.270772919784451,
+    "validation_roc_auc": 0.6002977458504214,
+    "validation_pr_auc": 0.2577560546440879,
+    "validation_eer": 0.42706121726822366,
+    "accuracy_at_05": 0.5442061301054718,
+    "balanced_accuracy_at_05": 0.5763648220975262,
+    "youden_threshold": 0.5034719705581665,
+    "accuracy_at_youden": 0.5493735400297303
+  },
+  "highest_validation_auc": {
+    "epoch": 11,
+    "roc_auc": 0.617622971534729,
+    "source": "TensorBoard scalar val/roc_auc"
+  },
+  "checkpoint_selection_rule": "Save best_model.pt when current validation loss is strictly less than the prior best validation loss.",
+  "checkpoint_selection_source": "training/trainer.py: is_best = val_loss < self.best_val_loss",
+  "best_checkpoint_differs_from_final_epoch": true,
+  "notes": [
+    "Training completed 100 epochs",
+    "The selected checkpoint is epoch 6, not epoch 100.",
+    "Checkpoint selection minimizes validation loss; it does not maximize ROC-AUC.",
+    "The highest logged ROC-AUC occurred at epoch 11 and was not selected as best_model.pt.",
+    "Rounded reported final values agree with epoch_100.pt and TensorBoard."
+  ]
+}

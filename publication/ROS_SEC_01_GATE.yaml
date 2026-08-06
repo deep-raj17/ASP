@@ -1,0 +1,27 @@
+api_version: ros.dev/v1
+kind: SecurityTrustGate
+metadata:
+  id: ros-sec-01-chaad
+  stage: ROS-SEC-01
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_COMPLETE
+  parts:
+    part_1: BLOCKED
+    part_2: BLOCKED
+    part_3: BLOCKED
+    part_4: BLOCKED
+  prerequisites:
+    ROS-CORE: COMPLETE
+    ROS-PROJECT: INCOMPLETE
+    ROS-PUB: INCOMPLETE
+    ROS-DEPLOY: BLOCKED
+  evidence: publication/ROS_DEPLOY_01_GATE.yaml
+  outputs:
+    security_governance: NOT_STARTED
+    threat_model: NOT_STARTED
+    privacy_trust_assessment: NOT_STARTED
+  next_action: Complete ROS-DEPLOY-01 and all upstream domains before security assessment.

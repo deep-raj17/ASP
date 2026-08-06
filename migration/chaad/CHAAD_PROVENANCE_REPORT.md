@@ -13,6 +13,7 @@ private dataset root.
 
 The authoritative MIMII Zenodo record (DOI `10.5281/zenodo.3384388`) identifies
 release `public 1.0`, four machine IDs 00/02/04/06, four machine types, three
-noise levels, and CC BY-SA 4.0. Local structure agrees, but source-archive
-identity remains unverified because the official archive MD5 values cannot be
-reconstructed from extracted directories.
+noise levels, and CC BY-SA 4.0. The record publishes MD5 values for all twelve
+archive ZIPs. Local structure agrees, but source-archive identity remains
+unverified because the original local archive or acquisition record is not
+available for comparison.

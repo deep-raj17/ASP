@@ -1,0 +1,44 @@
+{
+  "roc_auc": 0.6002609444987201,
+  "positive_score_roc_auc": 0.6002609444987201,
+  "negative_score_roc_auc": 0.39973905550127997,
+  "pr_auc": 0.25788610546048196,
+  "eer": 0.4264914171805303,
+  "youden_threshold": 0.4995152950286865,
+  "metrics_at_threshold_0_5": {
+    "threshold": 0.5,
+    "accuracy": 0.544453882636087,
+    "balanced_accuracy": 0.5756161662654282,
+    "precision": 0.2475717979176857,
+    "recall": 0.6275239107332625,
+    "f1": 0.3550633862805031,
+    "confusion_matrix": [
+      [
+        11840,
+        10768
+      ],
+      [
+        2103,
+        3543
+      ]
+    ]
+  },
+  "metrics_at_youden_threshold": {
+    "threshold": 0.4995152950286865,
+    "accuracy": 0.5441353436681532,
+    "balanced_accuracy": 0.5760815437417693,
+    "precision": 0.247768479776848,
+    "recall": 0.6292950761601134,
+    "f1": 0.35554888421895325,
+    "confusion_matrix": [
+      [
+        11821,
+        10787
+      ],
+      [
+        2093,
+        3553
+      ]
+    ]
+  }
+}

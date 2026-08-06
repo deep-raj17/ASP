@@ -28,6 +28,32 @@ import random
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+from utils.split_utils import load_manifest_split
+
+
+def _split_name_for_path(path: str, cfg: Config) -> str:
+    """Assign a deterministic, machine-independent split for a file path."""
+    machine_id = ""
+    for part in Path(path).parts:
+        part_lower = part.lower()
+        if part_lower.startswith("id_"):
+            machine_id = part_lower
+            break
+
+    if machine_id:
+        bucket = int(hashlib.md5(machine_id.encode()).hexdigest(), 16) % 3
+        if bucket == 0:
+            return "train"
+        if bucket == 1:
+            return "val"
+        return "test"
+
+    rel = os.path.normpath(os.path.relpath(path, cfg.data.dataset_dir)).lower()
+    key = f"{cfg.data.split_seed}|{rel}"
+    h = int(hashlib.md5(key.encode()).hexdigest(), 16)
+    is_val = (h % 10_000) < int(cfg.data.val_fraction * 10_000)
+    return "val" if is_val else "train"
+
 import numpy as np
 import torch
 import torchaudio
@@ -37,6 +63,19 @@ from config import Config
 from utils.audio_utils import AudioProcessor, pad_or_trim
 
 
+def _clean_manifest_value(value, default: str = "") -> str:
+    if value is None:
+        return default
+    if isinstance(value, float) and np.isnan(value):
+        return default
+    text = str(value).strip()
+    return text if text else default
+
+
+def _normalize_relative_path(path_value: str) -> str:
+    return _clean_manifest_value(path_value).replace("\\", "/")
+
+
 class MIMIIDataset(Dataset):
     """
     Returns dicts with keys:
@@ -44,6 +83,10 @@ class MIMIIDataset(Dataset):
         mfcc       (1, n_mfcc, T_frames)  MFCC
         waveform   (1, T_samples)
         label      float32   0=normal, 1=abnormal
+        sample_id  str       stable manifest-derived sample identifier
+        file_path  str       absolute source WAV path
+        relative_path str    normalized manifest relative WAV path
+        split      str       manifest split name
         machine    str
         machine_id str
         snr        str
@@ -68,22 +111,16 @@ class MIMIIDataset(Dataset):
     # ── Discovery ─────────────────────────────────────────
 
     def _scan(self, machine_types, snr_levels):
-        root = Path(self.dcfg.dataset_dir)
-        if not root.exists():
-            raise FileNotFoundError(
-                f"\n[ERROR] Dataset not found: {root.resolve()}\n"
-                "→ Open config.py and set cfg.data.dataset_dir to your MIMII path.\n"
-            )
+        manifest_path = getattr(self.dcfg, "manifest_path", None) or "metadata/dataset_manifest.csv"
+        split_manifest = load_manifest_split(
+            manifest_path=manifest_path,
+            split=self.split,
+            expected_checksum=getattr(self.dcfg, "manifest_checksum", None),
+            validate_integrity=True,
+        )
 
-        all_files = glob.glob(str(root / "**" / "*.wav"), recursive=True)
-        if not all_files:
-            raise RuntimeError(
-                f"\n[ERROR] No .wav files found under: {root.resolve()}\n"
-                "→ Check that your folder structure matches:\n"
-                "  MIMII_DATASET/0_dB_fan/fan/id_00/normal/*.wav\n"
-            )
-
-        for fp in all_files:
+        for _, row in split_manifest.df.iterrows():
+            fp = row["absolute_path"]
             fp_lower = fp.lower().replace("\\", "/")
 
             # Determine label from path containing 'abnormal' or 'normal'
@@ -92,59 +129,28 @@ class MIMIIDataset(Dataset):
             elif "/normal/" in fp_lower or "\\normal\\" in fp_lower:
                 label = 0
             else:
-                # Skip files not in normal/abnormal folders
                 continue
 
-            # Parse machine type and SNR from path
-            # Handles: 0_db_fan, 0_dB_fan, 6_db_pump, -6_db_slider, etc.
-            machine    = "unknown"
-            machine_id = "id_00"
-            snr        = "0_dB"
-
-            for part in Path(fp).parts:
-                part_lower = part.lower()
-
-                # Look for SNR pattern: X_db_machine (e.g., 0_db_fan, 6_db_pump)
-                if "_db_" in part_lower or part_lower.endswith("_db"):
-                    # Handle both: 0_db_fan and 0_db (with machine type separate)
-                    tokens = part_lower.split("_")
-                    try:
-                        # Find the 'db' token
-                        db_idx = next(i for i, t in enumerate(tokens) if t == "db")
-                        snr = "_".join(tokens[:db_idx + 1])  # e.g., "0_db" or "-6_db"
-
-                        # Convert to standard format: 0_dB (capital B)
-                        snr = snr.replace("_db", "_dB").replace("_Db", "_dB")
-
-                        # Machine type is everything after 'db'
-                        remaining = tokens[db_idx + 1:]
-                        if remaining:
-                            machine = "_".join(remaining)  # e.g., "fan", "pump", "slider", "valve"
-                    except StopIteration:
-                        pass
-
-                # Extract machine ID (e.g., id_00, id_02, id_04, id_06)
-                if part_lower.startswith("id_"):
-                    machine_id = part_lower
+            machine = row.get("machine_type", "unknown")
+            machine_id = row.get("machine_id", "unknown")
+            snr = row.get("noise_condition", "0_dB")
+            relative_path = _normalize_relative_path(
+                row.get("relative_path", os.path.relpath(fp, self.dcfg.dataset_dir))
+            )
+            manifest_sample_id = _clean_manifest_value(row.get("sample_id"))
+            sample_id = manifest_sample_id or relative_path
 
             if machine_types and machine not in machine_types:
                 continue
             if snr_levels and snr not in snr_levels:
                 continue
 
-            # Deterministic split: stable across runs (Python's hash() is salted per process)
-            rel = os.path.relpath(fp, root)
-            key = f"{self.dcfg.split_seed}|{os.path.normpath(rel).lower()}"
-            h   = int(hashlib.md5(key.encode()).hexdigest(), 16)
-            is_val = (h % 10_000) < int(self.dcfg.val_fraction * 10_000)
-
-            if self.split == "train" and is_val:
-                continue
-            if self.split == "val" and not is_val:
-                continue
-
             self.records.append(dict(
                 path=fp, label=label,
+                sample_id=sample_id,
+                relative_path=relative_path,
+                split=row.get("split", self.split),
+                source_recording=_clean_manifest_value(row.get("source_recording")) or relative_path,
                 machine=machine, machine_id=machine_id, snr=snr,
             ))
 
@@ -185,6 +191,11 @@ class MIMIIDataset(Dataset):
             mfcc=mfcc,
             waveform=waveform,
             label=torch.tensor(label, dtype=torch.float32),
+            sample_id=rec["sample_id"],
+            file_path=rec["path"],
+            relative_path=rec["relative_path"],
+            split=rec["split"],
+            source_recording=rec["source_recording"],
             machine=rec["machine"],
             machine_id=rec["machine_id"],
             snr=rec["snr"],
@@ -229,13 +240,42 @@ def get_dataloaders(cfg: Config) -> Tuple[DataLoader, DataLoader]:
         persistent_workers=cfg.training.num_workers > 0,
     )
 
-    train_loader = DataLoader(
-        train_ds,
-        batch_size=cfg.training.batch_size,
-        shuffle=True,
-        drop_last=True,
-        **common,
-    )
+    # Domain-aware sampling: balance samples by machine ID
+    if getattr(cfg.training, 'domain_aware_sampling', False):
+        from torch.utils.data import WeightedRandomSampler
+        import collections
+
+        # Count samples per machine ID
+        machine_ids = [r['machine_id'] for r in train_ds.records]
+        machine_counts = collections.Counter(machine_ids)
+
+        # Calculate weights: inversely proportional to count
+        weights = [1.0 / machine_counts[mid] for mid in machine_ids]
+
+        # Create sampler
+        sampler = WeightedRandomSampler(
+            weights=weights,
+            num_samples=len(weights),
+            replacement=True
+        )
+
+        train_loader = DataLoader(
+            train_ds,
+            batch_size=cfg.training.batch_size,
+            sampler=sampler,
+            drop_last=True,
+            **common,
+        )
+        print(f"[Domain-Aware Sampling] Enabled. Machine ID distribution: {dict(machine_counts)}")
+    else:
+        train_loader = DataLoader(
+            train_ds,
+            batch_size=cfg.training.batch_size,
+            shuffle=True,
+            drop_last=True,
+            **common,
+        )
+
     val_loader = DataLoader(
         val_ds,
         batch_size=cfg.training.batch_size,

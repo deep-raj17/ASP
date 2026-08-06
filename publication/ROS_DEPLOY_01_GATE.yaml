@@ -1,0 +1,23 @@
+api_version: ros.dev/v1
+kind: DeploymentOperationsGate
+metadata:
+  id: ros-deploy-01-chaad
+  stage: ROS-DEPLOY-01
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_COMPLETE
+  prerequisites:
+    ROS-CORE: COMPLETE
+    ROS-PROJECT: INCOMPLETE
+    ROS-PUB: INCOMPLETE
+  evidence:
+    ros_pub_05: publication/ROS_PUB_05_GATE.yaml
+    project_state: migration/chaad/CHAAD_STATE_REPORT.md
+  outputs:
+    deployment_architecture: NOT_STARTED
+    infrastructure_governance: NOT_STARTED
+    operational_readiness: NOT_STARTED
+  next_action: Complete ROS project and publication domains before deployment assessment.

@@ -1,0 +1,13 @@
+{
+  "left_batch_size": 16,
+  "right_batch_size": 32,
+  "sample_ids_identical_after_sort": true,
+  "labels_identical_after_sort": true,
+  "scores_equal_within_tolerance": true,
+  "score_tolerance": 1e-06,
+  "max_absolute_score_difference": 2.384185791015625e-07,
+  "left_roc_auc": 0.6002609444987201,
+  "right_roc_auc": 0.6002609444987201,
+  "roc_auc_difference": 0.0,
+  "status": "PASS"
+}

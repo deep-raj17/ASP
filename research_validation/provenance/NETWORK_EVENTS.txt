@@ -1,0 +1,12 @@
+﻿
+
+TimeCreated      : 27-07-2026 10:36:30
+ProviderName     : Tcpip
+Id               : 4266
+LevelDisplayName : Warning
+Message          : A request to allocate an ephemeral port number from the global UDP port space has failed due to all 
+                   such ports being in use.
+
+
+
+

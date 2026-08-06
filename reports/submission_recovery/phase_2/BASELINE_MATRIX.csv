@@ -1,0 +1,10 @@
+baseline_id,family,training_required,shared_backbone,fairness_control,primary_role,planned_seeds
+BL-RECON,reconstruction_only,no,yes,"same calibrated reconstruction scores and validation rows",simple_signal_baseline,"42;123;2026"
+BL-EMBED,embedding_distance_only,no,yes,"same embedding and train-normal reference set",simple_signal_baseline,"42;123;2026"
+BL-MAHAL,mahalanobis_only,no,yes,"same embedding and train-normal covariance",simple_signal_baseline,"42;123;2026"
+BL-CONTRA,contrastive_only,no,yes,"same embedding and train-normal nearest-neighbor reference",simple_signal_baseline,"42;123;2026"
+BL-EQUAL,equal_weight_fusion,no,yes,"four identical calibrated signals; weights fixed at 0.25",fixed_fusion_baseline,"42;123;2026"
+BL-GLOBAL,validation_optimized_global_fusion,posthoc_only,yes,"nested validation folds; one global simplex weight vector",strong_fixed_fusion_comparator,"42;123;2026"
+BL-UNCOND,unconditioned_learned_fusion,posthoc_only,yes,"same gate capacity without machine/noise metadata",architecture_relevant_baseline,"42;123;2026"
+BL-SIMPLE-NN,simple_neural_classifier,yes,no,"same manifest preprocessing augmentation epoch cap and seeds",neural_baseline,"42;123;2026"
+CHAAD-RA,reliability_aware_fusion,posthoc_only,yes,"nested validation folds and identical four signals",proposed_method,"42;123;2026"

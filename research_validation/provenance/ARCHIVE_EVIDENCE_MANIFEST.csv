@@ -1,0 +1,4 @@
+archive_name,relative_path,size_bytes,md5,sha256,created_time,modified_time,verification_status
+-6_dB_fan.zip,archives/quarantine/-6_dB_fan.zip.failed.20260727T045342Z,158846340,,,2026-07-27,2026-07-27,PRESERVED_FAILED_PARTIAL
+-6_dB_fan.zip,archives/quarantine/-6_dB_fan.zip.failed.20260727T045647Z,117424128,,,2026-07-27,2026-07-27,PRESERVED_FAILED_PARTIAL
+-6_dB_fan.zip,archives/quarantine/-6_dB_fan.zip.failed.resume.20260727T,223498676,,,2026-07-27,2026-07-27,PRESERVED_FAILED_PARTIAL

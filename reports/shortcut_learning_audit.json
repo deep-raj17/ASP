@@ -1,0 +1,27 @@
+{
+  "audit_status": "PASSED",
+  "total_findings": 0,
+  "findings": [],
+  "summary": {
+    "total_files": 53046,
+    "duration_difference": 0.0,
+    "file_size_difference": 0.0,
+    "noise_conditions": [
+      "-6_dB",
+      "0_dB",
+      "6_dB"
+    ],
+    "machine_types": [
+      "fan",
+      "pump",
+      "slider",
+      "valve"
+    ],
+    "machine_ids": [
+      "id_00",
+      "id_02",
+      "id_04",
+      "id_06"
+    ]
+  }
+}

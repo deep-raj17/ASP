@@ -1,0 +1,5 @@
+result_id,metric_or_claim,value_or_status,artifact,seed,checkpoint,split,provenance_status
+EXP-CHAAD-001-VAL-AUC,validation ROC-AUC,0.6002609445,artifacts/EXP-CHAAD-001/independent_metrics_corrected.json,UNKNOWN,epoch-6,validation,PROVISIONAL
+EXP-CHAAD-001-VAL-EXPORT,validation rows,28254,artifacts/EXP-CHAAD-001/prediction_export_validation.json,UNKNOWN,epoch-6,validation,VERIFIED
+PMPS01-CORPUS,corpus audit,53046 files, migration/chaad/remediation/pmps01_dataset_audit_20260724.json,NOT APPLICABLE,NOT APPLICABLE,manifest,VERIFIED
+PMPS01-IDENTITY,dataset release identity,UNKNOWN,migration/chaad/CHAAD_PROVENANCE_REPORT.md,NOT APPLICABLE,NOT APPLICABLE,all,INCOMPLETE

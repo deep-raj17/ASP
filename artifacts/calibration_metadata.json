@@ -1,0 +1,45 @@
+{
+  "source_split": "train_normal",
+  "sample_count": 37685,
+  "class_used": "normal",
+  "machine_ids_used": ["id_00", "id_02", "id_04", "id_06"],
+  "timestamp": "2026-07-20T15:21:00+05:30",
+  "manifest_checksum": "see metadata/dataset_manifest.sha256",
+  "test_data_used": false,
+  "verification": {
+    "status": "SAFE",
+    "reason": "Calibration fitted on train_normal samples only using get_normal_loader() which filters train split to label==0",
+    "file_reference": "calibrate.py lines 75-76, inference/detector.py lines 84-152"
+  },
+  "score_statistics": {
+    "reconstruction_error": {
+      "mean": 0.002762425923720002,
+      "std": 0.0016201996360144019
+    },
+    "embedding_distance": {
+      "mean": 0.011398599483072758,
+      "std": 0.01046682310981512
+    },
+    "mahalanobis_distance": {
+      "mean": 13.737991333007812,
+      "std": 1.9840880732400512
+    },
+    "contrastive_distance": {
+      "mean": 0.0034780786372721195,
+      "std": 0.0014378755469045042
+    }
+  },
+  "covariance_dimensions": [256, 256],
+  "reference_pool_size": 37685,
+  "fusion_weights": {
+    "w_recon": 0.30,
+    "w_embed": 0.25,
+    "w_mahal": 0.30,
+    "w_contra": 0.15
+  },
+  "allowed_calibration_splits": ["train_normal", "validation_normal"],
+  "guards": {
+    "implemented": false,
+    "note": "Guards to be added to prevent test data usage in calibration"
+  }
+}

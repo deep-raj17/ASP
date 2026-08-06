@@ -1,0 +1,2 @@
+archive_name,extraction_start,extraction_end,files_extracted,warnings,errors,status
+-6_dB_fan.zip,,,0,0,Not extracted because archive not verified,NOT_STARTED

@@ -1,0 +1,4 @@
+﻿"analysis","count","status","evidence","limitation"
+"exact_duplicate_hashes","0","VERIFIED","artifacts/research_audit/duplicate_hash_report.csv","No near-duplicate acoustic analysis performed"
+"duplicate_filenames","0","VERIFIED","metadata/dataset_manifest.csv","Within manifest scope"
+"duplicate_directories","0","VERIFIED","metadata/dataset_manifest.csv","Within manifest scope"

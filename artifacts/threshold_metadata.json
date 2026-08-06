@@ -1,0 +1,33 @@
+{
+  "threshold": 0.313720703125,
+  "selected_on": "validation",
+  "selection_metric": "youden_j_statistic",
+  "validation_metric_value": null,
+  "number_of_validation_samples": 7824,
+  "class_counts": {
+    "normal": 6319,
+    "abnormal": 1505
+  },
+  "timestamp": "2026-07-20T15:21:00+05:30",
+  "manifest_checksum": "see metadata/dataset_manifest.sha256",
+  "test_data_used": false,
+  "verification": {
+    "status": "CRITICAL_ISSUE",
+    "reason": "Threshold is selected on validation set using Youden's J statistic, but there is NO separate test set. The project evaluates on the same validation set used for threshold selection. This is a development/validation setup, not a proper test set evaluation.",
+    "file_reference": "utils/metrics.py lines 97-100, evaluate.py lines 45-82"
+  },
+  "selection_method": {
+    "description": "Youden's J statistic: maximizes (sensitivity + specificity - 1)",
+    "implementation": "j_scores = tpr_arr - fpr_arr; best_thresh = thresholds[np.argmax(j_scores)]"
+  },
+  "critical_issue": {
+    "no_test_set": true,
+    "evaluation_on_validation": true,
+    "threshold_selection_on_validation": true,
+    "implication": "Reported metrics are validation metrics, not test metrics. No untouched test set exists for final evaluation."
+  },
+  "guards": {
+    "implemented": false,
+    "note": "Guards needed to prevent test data usage in threshold selection. More critically, a separate test set needs to be created."
+  }
+}

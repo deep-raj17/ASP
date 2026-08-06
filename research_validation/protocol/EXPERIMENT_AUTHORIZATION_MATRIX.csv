@@ -1,0 +1,6 @@
+experiment_id,experiment_type,model,seed,purpose,required_for_pmps,estimated_compute,dataset_split,test_access,authorization_status,dependencies,expected_artifacts
+EXP-MULTISEED-001,multi-seed,CHAAD,17;29;41;53;67,Estimate stability,YES,UNKNOWN,train+val only,NO,PROPOSED,provenance closure and protocol approval,multi_seed_results.csv;seed_stability.md
+EXP-BASELINE-001,baseline,registered baselines,NA,Fair comparison,YES,UNKNOWN,train+val;test deferred,NO,PROPOSED,provenance closure;protocol approval,baseline_results.csv
+EXP-ABLATION-001,ablation,CHAAD components,NA,Attribute component contribution,YES,UNKNOWN,train+val;test deferred,NO,PROPOSED,provenance closure;protocol approval,ablation_results.csv
+EXP-STATS-001,statistics,frozen predictions,NA,Confidence intervals and effect sizes,YES,LOW,validation only,NO,PROPOSED,frozen predictions and analysis plan,statistical_results.csv
+EXP-ERROR-001,error-analysis,frozen predictions,NA,Failure taxonomy and root causes,YES,LOW,validation only,NO,PROPOSED,frozen predictions and analysis plan,error_registry.csv

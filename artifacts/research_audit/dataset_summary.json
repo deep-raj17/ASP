@@ -1,0 +1,43 @@
+{
+  "dataset_root": "E:/MIMII",
+  "wav_count": 53046,
+  "labels": {
+    "normal": 43146,
+    "abnormal": 9900
+  },
+  "machine_types": {
+    "fan": 15639,
+    "pump": 12615,
+    "valve": 12510,
+    "slider": 12282
+  },
+  "machine_ids": {
+    "id_00": 14292,
+    "id_02": 13962,
+    "id_06": 12747,
+    "id_04": 12045
+  },
+  "noise_conditions": {
+    "-6_dB": 18019,
+    "6_dB": 18019,
+    "0_dB": 17008
+  },
+  "manifest_rows": 53046,
+  "manifest_splits": {
+    "val": 28254,
+    "test": 12747,
+    "train": 12045
+  },
+  "audio_duration_stats": {
+    "min": 10.0,
+    "max": 10.0,
+    "mean": 10.0,
+    "std": 0.0
+  },
+  "sample_rates": [
+    16000
+  ],
+  "num_channels": [
+    8
+  ]
+}

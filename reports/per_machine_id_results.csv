@@ -1,0 +1,5 @@
+machine_id,split,total_samples,normal_count,abnormal_count,machine_types
+id_00,val,14292,11217,3075,"['fan', 'pump', 'slider', 'valve']"
+id_02,val,13962,11391,2571,"['fan', 'pump', 'slider', 'valve']"
+id_04,train,12045,9807,2238,"['fan', 'pump', 'slider', 'valve']"
+id_06,test,12747,10731,2016,"['fan', 'pump', 'slider', 'valve']"

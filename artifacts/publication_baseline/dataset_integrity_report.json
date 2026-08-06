@@ -1,0 +1,24 @@
+{
+  "broken_symbolic_link_count": 0,
+  "duplicate_absolute_path_count": 0,
+  "duplicate_hash_affected_rows_from_manifest": 0,
+  "duplicate_relative_path_count": 0,
+  "existing_file_count": 53046,
+  "file_size_mismatch_count": 0,
+  "full_corpus_audio_readability": "UNVERIFIED",
+  "full_corpus_live_sha256_recomputation": "UNVERIFIED",
+  "full_corpus_nan_inf_scan": "UNVERIFIED",
+  "generated_at_utc": "2026-07-24T06:09:36.711825+00:00",
+  "live_audio_readability": {
+    "checked_files": 1,
+    "evidence": "python verify_dataset.py (2026-07-24)",
+    "result": "PASS_FOR_REPRESENTATIVE_SAMPLE_ONLY",
+    "total_files": 53046
+  },
+  "manifest_present": true,
+  "manifest_row_count": 53046,
+  "manifest_sidecar_matches": true,
+  "missing_file_count": 0,
+  "reason_not_passed": "PMPS-01 requires every WAV to be read and checked for NaN/Inf. The existing validator loaded one representative file, and manifest hashes were not recomputed from the current 135.8 GB corpus in this stage.",
+  "status": "PARTIALLY_VERIFIED"
+}

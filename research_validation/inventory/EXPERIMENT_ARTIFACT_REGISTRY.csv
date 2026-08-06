@@ -1,0 +1,5 @@
+artifact_id,artifact_path,artifact_type,status,evidence_note
+EXP-CHAAD-001,artifacts/EXP-CHAAD-001/,experiment_package,PRESENT,Preserved checkpoint and corrected validation export; underfitting documented
+PMPS01-AUDIT,migration/chaad/remediation/pmps01_dataset_audit_20260724.json,integrity_audit,VERIFIED,53046 files audited with zero reported errors
+DATASET-MANIFEST,metadata/dataset_manifest.csv,dataset_manifest,PRESENT,Manifest is split source of truth; release identity remains unresolved
+ROS-STATUS,.ros/,governance_state,PRESENT,PMPS-01 BLOCKED and later PMPS gates UNEVALUATED

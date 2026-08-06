@@ -1,0 +1,4 @@
+attempt_id,archive_name,start_time,end_time,bytes_transferred,average_throughput,timeout_seconds,last_offset,observed_event,result
+COAP01-1,-6_dB_fan.zip,2026-07-27T04:53:42Z,UNKNOWN,158846340,UNKNOWN,UNKNOWN,158846340,PowerShell request stalled,INCOMPLETE
+COAP01-2,-6_dB_fan.zip,2026-07-27T04:56:47Z,UNKNOWN,117424128,UNKNOWN,UNKNOWN,117424128,Curl request stalled,INCOMPLETE
+COAP02-1,-6_dB_fan.zip,UNKNOWN,UNKNOWN,64652336,538769,120,223498676,Curl exit 28 operation timed out,INCOMPLETE

@@ -1,0 +1,39 @@
+Captured: 2026-07-27 Asia/Calcutta
+
+Python:
+  Version: 3.10.11
+  Executable: C:\Program Files\Python310\python.exe
+  Platform string: Windows-10-10.0.26200-SP0
+  Active virtual environment: none
+
+GPU:
+  NVIDIA GeForce RTX 4070 SUPER
+  Driver: 595.95
+  Reported GPU memory: 12,282 MiB
+  nvidia-smi maximum CUDA compatibility: 13.2
+  Installed PyTorch: 2.5.1+cu121
+  PyTorch CUDA build: 12.1
+
+Operating system:
+  Windows build reported by Python platform: 10.0.26200
+  Detailed Win32_OperatingSystem CIM query: unavailable (access denied)
+
+Filesystems (read-only DriveInfo observation):
+  C:\  NTFS  total 957.83 GB  available 569.85 GB
+  D:\  NTFS  total 167.62 GB  available 91.42 GB
+  E:\  NTFS  total 195.31 GB  available 67.55 GB
+
+Relevant environment/dependency files:
+  Dockerfile
+  docker-compose.yml
+  pyproject.toml
+  requirements.txt
+  edge_deploy\requirements_edge.txt
+  edge_deploy\requirements_rpi.txt
+  artifacts\publication_baseline\requirements_frozen.txt
+
+Reproducibility caveat:
+  EXP-CHAAD-001 records Python 3.11.9 at training start, whereas this audit used
+  Python 3.10.11. The training OS build, exact GPU identity, driver, cuDNN
+  version, full dependency lock, exact shell command, and dirty-tree patch were
+  not preserved at run start.

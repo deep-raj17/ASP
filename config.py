@@ -117,6 +117,13 @@ class TrainingConfig:
     wandb_project:     str  = "mimii-anomaly"
     log_every_n_steps: int  = 50
 
+    # ── Reproducibility ──────────────────────────────────
+    random_seed: int = 42
+    deterministic_cudnn: bool = True  # Slower but reproducible
+    
+    # ── Domain-Aware Sampling ────────────────────────────
+    domain_aware_sampling: bool = True  # Balance samples by machine ID
+
 
 @dataclass
 class InferenceConfig:

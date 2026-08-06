@@ -1,0 +1,85 @@
+{
+  "overall_recommendation": "0. No Critical Issues - Dataset + Protocols Appear Sound",
+  "scores": {
+    "scientific_integrity": 9,
+    "leakage_risk": 0,
+    "dataset_quality": 8,
+    "publication_risk": 4,
+    "gates_passed": 7,
+    "gates_failed": 0,
+    "gates_warning": 1,
+    "gates_not_verified": 2
+  },
+  "gates": {
+    "A": {
+      "name": "Machine Leakage",
+      "status": "PASS",
+      "detail": "All machine IDs are in exactly one split each"
+    },
+    "B": {
+      "name": "Segment Overlap",
+      "status": "PASS",
+      "detail": "No segment overlap across splits"
+    },
+    "C": {
+      "name": "Duplicate Recordings",
+      "status": "PASS",
+      "detail": "No cross-split SHA-256 duplicates found"
+    },
+    "D": {
+      "name": "Normalization",
+      "status": "PASS",
+      "detail": "Fixed constant normalization, no data leakage"
+    },
+    "E": {
+      "name": "Calibration",
+      "status": "PASS",
+      "detail": "Fitted on train_normal only"
+    },
+    "F": {
+      "name": "Threshold Selection",
+      "status": "PASS",
+      "detail": "Three-split protocol: train=12045, val=28254, test=12747. Threshold selected on validation via Youden's J, evaluate.py supports --split test for frozen-threshold evaluation."
+    },
+    "G": {
+      "name": "Metric Implementation",
+      "status": "PASS",
+      "detail": "Uses sklearn, continuous scores for AUC"
+    },
+    "H": {
+      "name": "Shortcut Learning",
+      "status": "NOT VERIFIED",
+      "detail": "Needs metadata-only baseline execution; run scripts/audit_shortcuts.py"
+    },
+    "I": {
+      "name": "Dataset Bias",
+      "status": "WARNING",
+      "detail": "4.36:1 normal-to-abnormal ratio; per-split imbalance needs monitoring"
+    },
+    "J": {
+      "name": "Reproducibility",
+      "status": "NOT VERIFIED",
+      "detail": "Needs dependency check and commit hash verification"
+    }
+  },
+  "critical_findings": [
+    "None - all checks passed"
+  ],
+  "dataset_summary": {
+    "total_files": 53046,
+    "splits": {
+      "val": 28254,
+      "test": 12747,
+      "train": 12045
+    },
+    "machine_ids": [
+      "id_00",
+      "id_02",
+      "id_04",
+      "id_06"
+    ],
+    "normal_count": 43146,
+    "abnormal_count": 9900,
+    "ratio_norm_to_abnorm": 4.36
+  }
+}

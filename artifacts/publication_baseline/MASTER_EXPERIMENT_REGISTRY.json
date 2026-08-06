@@ -1,0 +1,41 @@
+{
+  "experiments": [
+    {
+      "artifacts": [
+        "artifacts/EXP-CHAAD-001/README.md",
+        "artifacts/EXP-CHAAD-001/checkpoint.pt",
+        "artifacts/EXP-CHAAD-001/checkpoint.sha256",
+        "artifacts/EXP-CHAAD-001/config_snapshot.json",
+        "artifacts/EXP-CHAAD-001/environment.json",
+        "artifacts/EXP-CHAAD-001/evaluation_audit.json",
+        "artifacts/EXP-CHAAD-001/evaluation_audit.md",
+        "artifacts/EXP-CHAAD-001/git_commit.txt",
+        "artifacts/EXP-CHAAD-001/independent_metrics.json",
+        "artifacts/EXP-CHAAD-001/independent_metrics_corrected.json",
+        "artifacts/EXP-CHAAD-001/manifest_checksum.txt",
+        "artifacts/EXP-CHAAD-001/prediction_export_determinism.json",
+        "artifacts/EXP-CHAAD-001/prediction_export_validation.json",
+        "artifacts/EXP-CHAAD-001/provenance.json",
+        "artifacts/EXP-CHAAD-001/subgroup_metrics.json",
+        "artifacts/EXP-CHAAD-001/subgroup_metrics_corrected.json",
+        "artifacts/EXP-CHAAD-001/training_audit.json",
+        "artifacts/EXP-CHAAD-001/training_audit.md",
+        "artifacts/EXP-CHAAD-001/training_command.txt",
+        "artifacts/EXP-CHAAD-001/training_summary.json",
+        "artifacts/EXP-CHAAD-001/validation_metrics.json",
+        "artifacts/EXP-CHAAD-001/validation_predictions.csv",
+        "artifacts/EXP-CHAAD-001/validation_predictions_corrected.csv"
+      ],
+      "checkpoint": "checkpoints/best_model.pt",
+      "configuration": "config.py and artifacts/experiment_provenance.json",
+      "date": "2026-07-21 to 2026-07-22",
+      "experiment_id": "EXP-CHAAD-001",
+      "metrics": "artifacts/EXP-CHAAD-001/independent_metrics_corrected.json",
+      "purpose": "First machine-independent CHAAD training run",
+      "reports": "artifacts/EXP-CHAAD-001/evaluation_audit.md",
+      "status": "OFFICIAL_PROVISIONAL; validation export fixed; underfit"
+    }
+  ],
+  "generated_at_utc": "2026-07-24T06:09:38.457701+00:00",
+  "orphan_checkpoint_count": 0
+}

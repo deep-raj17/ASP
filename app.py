@@ -43,12 +43,11 @@ from PIL import Image
 import gradio as gr
 
 from config import cfg
-from paths import artifacts_status, calibration_path, resolve_model_checkpoint
+from paths import artifacts_status, calibration_path, require_inference_artifacts
 
 print(f"[App] UI imports ready in {time.perf_counter() - STARTED_AT:.2f}s", flush=True)
 
 
-CKPT_PATH, CKPT_PRECISION = resolve_model_checkpoint(prefer_fp16_on_cuda=True)
 CALIB_PATH = calibration_path()
 TARGET_LEN = int(cfg.data.sample_rate * cfg.data.audio_duration_sec)
 
@@ -100,29 +99,26 @@ def _lazy_init() -> None:
     for name, value in artifacts_status().items():
         print(f"[App] artifact {name}: {value}", flush=True)
 
+    checkpoint_path, checkpoint_precision = require_inference_artifacts()
     model = HybridAnomalyModel(cfg.model).to(STATE.device)
-    if os.path.isfile(CKPT_PATH):
-        print(f"[App] Loading checkpoint ({CKPT_PRECISION}): {CKPT_PATH}", flush=True)
-        epoch, loaded_precision = load_model_weights(model, CKPT_PATH, STATE.device)
-        print(
-            f"[App] Checkpoint loaded (epoch={epoch}, storage={loaded_precision})",
-            flush=True,
-        )
-    else:
-        print(f"[App] WARNING: checkpoint not found: {CKPT_PATH}", flush=True)
-        print("[App] Running with randomly initialized weights.", flush=True)
+    print(
+        f"[App] Loading checkpoint ({checkpoint_precision}): {checkpoint_path}",
+        flush=True,
+    )
+    epoch, loaded_precision = load_model_weights(model, checkpoint_path, STATE.device)
+    print(
+        f"[App] Checkpoint loaded (epoch={epoch}, storage={loaded_precision})",
+        flush=True,
+    )
 
     model.eval()
 
     use_compile = os.environ.get("APP_USE_TORCH_COMPILE", "0") == "1"
     STATE.detector = ProductionDetector(model, cfg, use_compiled=use_compile)
 
-    if os.path.isfile(CALIB_PATH):
-        print(f"[App] Loading calibration: {CALIB_PATH}", flush=True)
-        STATE.detector.load_calibration(CALIB_PATH)
-        print("[App] Calibration loaded", flush=True)
-    else:
-        print(f"[App] WARNING: calibration not found: {CALIB_PATH}", flush=True)
+    print(f"[App] Loading calibration: {CALIB_PATH}", flush=True)
+    STATE.detector.load_calibration(CALIB_PATH)
+    print("[App] Calibration loaded", flush=True)
 
     STATE.processor = AudioProcessor(cfg.data)
     setup_cuda_optimizations()
@@ -538,7 +534,7 @@ def build_app() -> gr.Blocks:
             f"""
             <div class="status-strip">
               <div class="status-item"><span>Mode</span><strong>Inference only</strong></div>
-              <div class="status-item"><span>Weights</span><strong>{CKPT_PRECISION.upper()} artifact</strong></div>
+              <div class="status-item"><span>Weights</span><strong>Verified artifact required</strong></div>
               <div class="status-item"><span>Calibration</span><strong>{'Available' if os.path.isfile(CALIB_PATH) else 'Missing'}</strong></div>
               <div class="status-item"><span>Fusion</span><strong>Recon + Embedding + Mahalanobis + Contrastive</strong></div>
             </div>

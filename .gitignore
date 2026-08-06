@@ -17,6 +17,11 @@ __pycache__/
 
 # Distribution / packaging
 build/
+
+# Local ROS runtime state and private adapter paths
+.ros/
+.ros-*/
+projects/*/paths.local.yaml
 dist/
 *.egg-info/
 *.egg
@@ -108,3 +113,8 @@ Thumbs.db
 
 dist/
 build/
+.orchestrator-venv/
+orchestrator/runtime/
+orchestrator/state.json
+reports/autonomous_loop/raw/
+.env

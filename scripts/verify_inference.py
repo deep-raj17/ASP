@@ -13,9 +13,10 @@ os.chdir(_ROOT)
 def main() -> int:
     import torch
     from config import cfg
-    from paths import PATHS, resolve_model_checkpoint, artifacts_status
+    from paths import artifacts_status, require_inference_artifacts
     from models.hybrid_model import HybridAnomalyModel
     from utils.checkpoint import load_model_weights
+    from utils.precision import safe_autocast
 
     print("=" * 60)
     print("  MIMII Inference Verification (no training)")
@@ -30,14 +31,11 @@ def main() -> int:
     if device.type == "cuda":
         print(f"  gpu: {torch.cuda.get_device_name(0)}")
 
-    ckpt, prec = resolve_model_checkpoint()
-    if not os.path.isfile(ckpt):
-        print(f"\nERROR: Missing weights at {ckpt}")
+    try:
+        ckpt, prec = require_inference_artifacts()
+    except FileNotFoundError as exc:
+        print(f"\nERROR: {exc}")
         return 1
-
-    calib = PATHS.detector_calibration
-    if not os.path.isfile(calib):
-        print(f"\nWARN: Missing calibration at {calib}")
 
     model = HybridAnomalyModel(cfg.model).to(device)
     epoch, loaded_prec = load_model_weights(model, ckpt, device)
@@ -47,11 +45,11 @@ def main() -> int:
 
     dummy = torch.randn(1, 1, cfg.data.n_mels, 313, device=device)
     with torch.inference_mode():
-        if device.type == "cuda":
-            with torch.autocast(device_type="cuda", dtype=torch.float16):
-                out = model(dummy)
-        else:
+        with safe_autocast(device, enabled=True):
             out = model(dummy)
+    if not all(torch.isfinite(value).all() for value in out.values()):
+        print("\nERROR: Model forward produced non-finite outputs")
+        return 1
     print(f"  forward OK, logits shape: {out['logits'].shape}")
     print("\n  All checks passed.")
     return 0

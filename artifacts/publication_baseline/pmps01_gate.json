@@ -1,0 +1,14 @@
+{
+  "blocking_issues": [
+    "Full-corpus live WAV readability and finite-value scan not executed",
+    "Full-corpus current-file SHA-256 recomputation not executed",
+    "Dataset version and license unknown"
+  ],
+  "dataset_health_score": 70,
+  "documentation_score": 80,
+  "next_stage_authorized": false,
+  "publication_readiness_score": 45,
+  "repository_health_score": 90,
+  "reproducibility_score": 65,
+  "status": "FAIL"
+}

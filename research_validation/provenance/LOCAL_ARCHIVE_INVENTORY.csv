@@ -1,0 +1,13 @@
+archive_name,local_path,size_bytes,modified_time,md5,sha256,official_name_match,status
+-6_dB_fan.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\-6_dB_fan.zip,10878096548,2026-05-13T13:57:43,f02ae808a58d84b6815b7ec38ff30879,,YES,MATCH
+-6_dB_pump.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\-6_dB_pump.zip,8236951723,2026-05-13T12:32:01,d20b783a0ff9c93d58f452f98c37b112,,YES,MATCH
+-6_dB_slider.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\-6_dB_slider.zip,7951254230,2026-05-13T12:51:09,49913eda7d37f182cbf8ed5c984140e0,,YES,MATCH
+-6_dB_valve.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\-6_dB_valve.zip,8037536346,2026-05-13T13:01:04,fdfaf185fea61b21e11952a070a4ada7,,YES,MATCH
+0_dB_fan.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\0_dB_fan.zip,10411902283,2026-05-13T12:24:31,6354d1cc2165c52168f9ef1bcd9c7c52,,YES,MATCH
+0_dB_pump.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\0_dB_pump.zip,7869431302,2026-05-13T12:18:17,488748295c3f60b25de07b58fe75b049,,YES,MATCH
+0_dB_slider.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\0_dB_slider.zip,7508958315,2026-05-13T11:53:57,4d674c21474f0646ecd75546db6c0c4e,,YES,MATCH
+0_dB_valve.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\0_dB_valve.zip,7486536802,2026-05-13T11:57:52,178478eb0d11c79080a35562bfdeee71,,YES,MD5_MISMATCH
+6_dB_fan.zip,C:\\Users\\nielitpatna\\Downloads\\Compressed\\6_dB_fan.zip,10158673161,2026-05-13T11:12:46,0890f7d3c2fd8448634e69ff1d66dd47,,YES,MATCH
+6_dB_pump.zip,,,,,,YES,LOCAL_ARCHIVE_MISSING
+6_dB_slider.zip,,,,,,YES,LOCAL_ARCHIVE_MISSING
+6_dB_valve.zip,,,,,,YES,LOCAL_ARCHIVE_MISSING

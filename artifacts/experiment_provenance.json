@@ -1,0 +1,18 @@
+{
+  "experiment_id": "train_20260721_120503",
+  "timestamp_utc": "2026-07-21T12:05:03.484644+00:00",
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "pytorch_version": "2.5.1+cu121",
+  "cuda_available": true,
+  "cuda_version": "12.1",
+  "config": {
+    "backbone": "efficientnet_b4",
+    "temporal_module": "transformer",
+    "batch_size": 32,
+    "epochs": 100,
+    "learning_rate": 0.0001,
+    "random_seed": 42,
+    "split_seed": 42
+  }
+}

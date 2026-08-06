@@ -1,0 +1,19 @@
+api_version: ros.dev/v1
+kind: ManuscriptArchitectureGate
+metadata:
+  id: ros-pub-03-chaad
+  stage: ROS-PUB-03
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_PASS
+  prerequisite:
+    ROS-PUB-02: BLOCKED
+    evidence: publication/ROS_PUB_02_GATE.yaml
+  outputs:
+    manuscript_architecture: NOT_STARTED
+    section_plan: NOT_STARTED
+    manuscript_governance: NOT_STARTED
+  next_action: Re-evaluate ROS-PUB-03 only after ROS-PUB-02 is PASS.

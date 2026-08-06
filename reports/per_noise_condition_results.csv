@@ -1,0 +1,10 @@
+noise_condition,split,total_samples,normal_count,abnormal_count
+-6_dB,val,9755,7873,1882
+-6_dB,train,4015,3269,746
+-6_dB,test,4249,3577,672
+0_dB,val,8744,6862,1882
+0_dB,train,4015,3269,746
+0_dB,test,4249,3577,672
+6_dB,val,9755,7873,1882
+6_dB,train,4015,3269,746
+6_dB,test,4249,3577,672

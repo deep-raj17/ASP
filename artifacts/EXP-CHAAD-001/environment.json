@@ -1,0 +1,31 @@
+{
+  "registration_environment": {
+    "observed_at": "2026-07-24T09:59:32.1271961+05:30",
+    "python_version": "3.10.11",
+    "python_full": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "pytorch_version": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_model": "NVIDIA GeForce RTX 4070 SUPER"
+  },
+  "training_environment_captured_at_run_start": {
+    "source": "artifacts/experiment_provenance.json",
+    "timestamp_utc": "2026-07-21T12:05:03.484644+00:00",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "pytorch_version": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_version": "12.1",
+    "gpu_model": null,
+    "gpu_model_note": "Not captured by the run-start provenance; NVIDIA GeForce RTX 4070 SUPER is the currently observed GPU and is named in configuration comments, but the exact training GPU is not independently logged."
+  },
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "git_branch": "blackboxai/research-integrity-audit",
+  "dataset_root": "E:\\MIMII",
+  "split_protocol": "machine_independent",
+  "split_seed": 42,
+  "val_fraction": 0.15,
+  "unresolved": [
+    "OS build, NVIDIA driver, cuDNN version, and a dependency lockfile were not captured at training start.",
+    "The active Python interpreter at verification (3.10.11) differs from the training provenance interpreter (3.11.9)."
+  ]
+}

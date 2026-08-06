@@ -1,0 +1,2 @@
+Reported/expected command: python train.py
+Verification: UNRESOLVED - the run-start provenance does not contain the shell command and no shell transcript was preserved.

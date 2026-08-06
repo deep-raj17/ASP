@@ -1,0 +1,45 @@
+{
+  "channels": {
+    "8": 53046
+  },
+  "classes": {
+    "abnormal": 9900,
+    "normal": 43146
+  },
+  "dataset_root": "E:\\MIMII",
+  "durations_seconds": {
+    "maximum": 10.0,
+    "mean": 10.0,
+    "minimum": 10.0,
+    "total": 530460.0
+  },
+  "file_size_mismatch_count": 0,
+  "generated_at_utc": "2026-07-24T06:09:36.697945+00:00",
+  "machine_ids": {
+    "id_00": 14292,
+    "id_02": 13962,
+    "id_04": 12045,
+    "id_06": 12747
+  },
+  "machine_types": {
+    "fan": 15639,
+    "pump": 12615,
+    "slider": 12282,
+    "valve": 12510
+  },
+  "manifest_path": "metadata/dataset_manifest.csv",
+  "manifest_sha256": "7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136",
+  "manifest_sidecar": "7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136",
+  "manifest_sidecar_matches": true,
+  "missing_file_count": 0,
+  "sample_rates": {
+    "16000": 53046
+  },
+  "splits": {
+    "test": 12747,
+    "train": 12045,
+    "val": 28254
+  },
+  "total_files": 53046,
+  "total_manifest_bytes": 135802003680
+}

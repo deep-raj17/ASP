@@ -1,0 +1,51 @@
+api_version: ros.dev/v1
+kind: PublicationAssuranceGate
+metadata:
+  id: ros-pub-01-chaad
+  stage: ROS-PUB-01
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  title: Research Contribution, Scientific Novelty and Publication Worthiness Validation
+  decision: BLOCKED
+  reason_code: MISSING_PREREQUISITE_STAGE
+  stop_rule: >-
+    ROS-PUB-01 requires every listed prerequisite to be complete and not
+    BLOCKED, FAILED, REVISE, UNKNOWN, or partially executed.
+  prerequisites:
+    ROS-CORE-01: VERIFIED
+    ROS-CORE-02: VERIFIED
+    ROS-CORE-03: VERIFIED
+    ROS-CLI-01: VERIFIED
+    ROS-PROJECT-01: VERIFIED
+    ROS-PROJECT-02: MISSING
+    ROS-PROJECT-03: MISSING
+    ROS-PROJECT-04: MISSING
+    ROS-PROJECT-05: MISSING
+    ROS-PROJECT-06: MISSING
+    ROS-PROJECT-07: MISSING
+    ROS-PROJECT-08: MISSING
+    ROS-PROJECT-09: MISSING
+    ROS-PROJECT-10: MISSING
+    ROS-PROJECT-11: MISSING
+    ROS-PROJECT-12: MISSING
+    ROS-PROJECT-13: MISSING
+  project_state:
+    workflow: PMPS
+    pmps_01: BLOCKED
+    blocking_reason: REQUIRED_EVIDENCE_MISSING
+    publication_ready: false
+  evidence:
+    ros_status_command: 'python -m ros.cli.main --config . --project chaad --format json status'
+    workflow_definition: ros/specs/workflows/pmps-1.0.0.yaml
+    project_state_report: migration/chaad/CHAAD_STATE_REPORT.md
+    provenance_report: migration/chaad/CHAAD_PROVENANCE_REPORT.md
+  outputs:
+    contribution_discovery: NOT_STARTED
+    argument_falsification: NOT_STARTED
+    publication_readiness: NOT_STARTED
+  next_action: >-
+    Complete and independently verify ROS-PROJECT-02 through ROS-PROJECT-13,
+    then resolve the PMPS-01 dataset identity/provenance blocker before
+    re-evaluating ROS-PUB-01.

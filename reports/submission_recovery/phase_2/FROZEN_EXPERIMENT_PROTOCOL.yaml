@@ -1,0 +1,119 @@
+protocol_id: CHAAD-SUBMISSION-RECOVERY-V1
+frozen_at: "2026-07-27"
+status: FROZEN
+research_question: >
+  Does sample-dependent reliability-aware fusion improve machine-independent
+  validation ROC-AUC over the strongest prespecified fixed fusion comparator?
+dataset:
+  manifest: metadata/dataset_manifest.csv
+  manifest_sha256: 7c689508cbed4d49d05ec2891b315b27722ff01a8a62b6b1c4f610e3afcd0136
+  historical_root_read_only: "E:/MIMII"
+  split_policy:
+    train: {machine_ids: [id_04], rows: 12045}
+    validation: {machine_ids: [id_00, id_02], rows: 28254}
+    protected_test: {machine_ids: [id_06], rows: 12747}
+  test_access_before_phase_8: forbidden
+preprocessing:
+  sample_rate: 16000
+  duration_seconds: 10.0
+  n_fft: 2048
+  hop_length: 512
+  n_mels: 128
+  fmin: 20.0
+  fmax: 8000.0
+  normalization: fixed_db_range_minus_80_to_0_mapped_to_0_1
+augmentation:
+  train_only: true
+  time_mask_param: 30
+  freq_mask_param: 15
+  noise_std: 0.005
+  mixup_alpha: 0.4
+  time_stretch_range: [0.9, 1.1]
+  pitch_shift_steps: 2
+seeds: [42, 123, 2026]
+model:
+  backbone: efficientnet_b4
+  temporal_module: transformer
+  transformer_d_model: 256
+  transformer_heads: 8
+  transformer_layers: 4
+  embedding_dim: 256
+  autoencoder_latent_channels: 128
+training:
+  optimizer: AdamW
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  gradient_accumulation_steps: 2
+  mixed_precision: true
+  maximum_epochs: 30
+  minimum_epochs: 8
+  early_stopping:
+    monitor: validation_loss
+    mode: min
+    patience: 6
+    minimum_delta: 0.0001
+  checkpoint_selection:
+    monitor: validation_loss
+    mode: min
+  failed_run_policy:
+    retry_limit: 1
+    retry_only_for: [infrastructure_failure, transient_cuda_failure]
+    seed_or_configuration_change_on_retry: forbidden
+calibration:
+  fit_split: train
+  labels: [normal]
+  per_seed: true
+  test_data_forbidden: true
+fusion_training:
+  split: validation
+  nested_folds: 5
+  fold_grouping: machine_id_and_source_recording
+  model_selection_within_training_folds_only: true
+  out_of_fold_predictions_required: true
+  final_refit_after_validation_analysis: allowed_for_phase_8_freeze_only
+metrics:
+  primary: roc_auc
+  secondary: [pr_auc, partial_auc_at_fpr_0_1, eer, balanced_accuracy, f1]
+  operating_threshold:
+    selection_split: validation
+    method: youden_j
+    freeze_before_test: true
+  subgroup: [machine_type, machine_id, noise_condition]
+comparators:
+  - reconstruction_only
+  - embedding_distance_only
+  - mahalanobis_only
+  - contrastive_only
+  - equal_weight_fusion
+  - validation_optimized_global_fusion
+  - unconditioned_learned_fusion
+  - reliability_aware_fusion
+  - simple_neural_classifier
+ablations:
+  - no_machine_conditioning
+  - no_noise_conditioning
+  - no_machine_or_noise_conditioning
+  - no_embedding_summary
+  - no_autoencoder_training_objective
+  - no_contrastive_training_objective
+statistics:
+  confidence_level: 0.95
+  bootstrap_replicates: 10000
+  primary_test: paired_seed_level_permutation_test
+  secondary_test: paired_stratified_prediction_bootstrap
+  effect_sizes: [paired_mean_difference, paired_median_difference, standardized_paired_difference]
+  multiple_comparison_correction: holm
+  alpha: 0.05
+artifacts:
+  immutable_run_config: required
+  environment_capture: required
+  checkpoint_hash: required
+  sample_ids: required
+  predictions: required
+  labels: required
+  split_identity: required
+  command: required
+  logs: required
+  failure_record: required
+  source_tables: required

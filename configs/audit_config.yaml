@@ -1,0 +1,54 @@
+# Data Leakage Audit Configuration
+dataset_root: "E:/MIMII"
+output_dir: "metadata"
+manifest_path: "metadata/dataset_manifest.csv"
+audit_report_path: "reports/data_leakage_audit.json"
+provenance_path: "artifacts/experiment_provenance.json"
+
+# Split protocol: machine_independent or machine_dependent
+# machine_independent: machine IDs must be disjoint across train, validation, and test
+# machine_dependent: machine IDs may repeat, but recordings and segments must be isolated
+split_protocol: "machine_independent"
+
+# Split configuration (must match config.py)
+split_seed: 42
+val_fraction: 0.15
+
+# Audio parameters (must match config.py)
+sample_rate: 16000
+audio_duration_sec: 10.0
+
+# Allowed splits
+allowed_splits:
+  - train
+  - val
+  - test
+
+# Allowed machine types
+allowed_machine_types:
+  - fan
+  - pump
+  - slider
+  - valve
+
+# Allowed noise conditions
+allowed_noise_conditions:
+  - -6_dB
+  - 0_dB
+  - 6_dB
+  - -6_db
+  - 0_db
+  - 6_db
+
+# Allowed labels
+allowed_labels:
+  - normal
+  - abnormal
+
+# Audit checks
+check_duplicate_checksums: true
+check_machine_id_isolation: true
+check_temporal_overlap: false  # Requires segment information
+check_unknown_splits: true
+check_unknown_machine_ids: true
+check_unknown_labels: true

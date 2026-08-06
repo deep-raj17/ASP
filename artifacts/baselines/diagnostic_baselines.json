@@ -1,0 +1,31 @@
+{
+  "majority_class": {
+    "roc_auc": 0.5,
+    "pr_auc": 0.40700000524520874,
+    "accuracy": 0.593,
+    "balanced_accuracy": 0.5,
+    "f1": 0.0,
+    "majority_class": 0
+  },
+  "random_score": {
+    "roc_auc": 0.5044768822171858,
+    "pr_auc": 0.40780390159441504,
+    "accuracy": 0.511,
+    "balanced_accuracy": 0.5140915098756582,
+    "f1": 0.46905537459283386
+  },
+  "logistic_regression": {
+    "roc_auc": 0.5821231318701807,
+    "pr_auc": 0.5093027210023048,
+    "accuracy": 0.605,
+    "balanced_accuracy": 0.5155126765582078,
+    "f1": 0.06619385342789598
+  },
+  "random_forest": {
+    "roc_auc": 0.5898173200028174,
+    "pr_auc": 0.49390440738261693,
+    "accuracy": 0.593,
+    "balanced_accuracy": 0.5,
+    "f1": 0.0
+  }
+}

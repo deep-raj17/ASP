@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "summary": "Three-split protocol: train=12045, val=28254, test=12747. Threshold selected on validation via Youden's J, evaluate.py supports --split test for frozen-threshold evaluation.",
+  "selected_on": "validation",
+  "selection_metric": "youden_j_statistic",
+  "test_data_used": false,
+  "critical_issue": {
+    "no_separate_test_set": false,
+    "evaluation_on_validation": false,
+    "threshold_selection_on_validation": true,
+    "implication": "Threshold is correctly selected on validation. Test set exists for final frozen evaluation."
+  },
+  "protocol": {
+    "has_test_split": true,
+    "has_val_split": true,
+    "has_train_split": true,
+    "evaluate_py_supports_test_flag": true,
+    "threshold_selection": "validation via Youden's J (evaluate.py lines 76-78)",
+    "test_evaluation": "frozen threshold via evaluate.py --split test (lines 60-67)"
+  },
+  "file_reference": "evaluate.py lines 45-82, utils/metrics.py lines 97-100"
+}

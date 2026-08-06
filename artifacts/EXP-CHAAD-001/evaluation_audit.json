@@ -1,0 +1,137 @@
+{
+  "experiment_id": "EXP-CHAAD-001",
+  "audit_status": "EVALUATION EXPORT FIXED - PROMPT 2 PASSED",
+  "checkpoint_loading": "SUCCESS",
+  "prediction_alignment": "VERIFIED_WITH_STABLE_SAMPLE_IDS",
+  "label_correctness": "VERIFIED",
+  "score_correctness": "VERIFIED",
+  "metric_recomputation": "SUCCESS",
+  "score_direction": "CORRECT",
+  "original_corrupted_export": {
+    "path": "artifacts\\EXP-CHAAD-001\\validation_predictions.csv",
+    "status": "CORRUPTED_EXPORT_RETAINED_FOR_HISTORY",
+    "exported_prediction_rows": 28254,
+    "unique_sample_ids": 28224,
+    "duplicate_sample_id_count": 30,
+    "duplicate_row_count": 60,
+    "roc_auc": 0.5999999937326065,
+    "negative_score_roc_auc": 0.4000000062673936,
+    "root_cause": "sample_id generated from batch_idx * len(labels), which collides after a short final batch"
+  },
+  "corrected_export": {
+    "path": "artifacts\\EXP-CHAAD-001\\validation_predictions_corrected.csv",
+    "batch_size": 32,
+    "validation_report_path": "artifacts\\EXP-CHAAD-001\\prediction_export_validation.json",
+    "determinism_report_path": "artifacts\\EXP-CHAAD-001\\prediction_export_determinism.json",
+    "export_validation": {
+      "checkpoint_path": "checkpoints\\best_model.pt",
+      "checkpoint_sha256": "7d58293ea5138b730811bb261de0b971a8a5e4e52665961b48f2f4a4d85ad7e9",
+      "expected_validation_samples": 28254,
+      "exported_prediction_rows": 28254,
+      "unique_sample_ids": 28254,
+      "duplicate_sample_id_count": 0,
+      "duplicate_row_count": 0,
+      "missing_id_count": 0,
+      "invalid_label_count": 0,
+      "non_finite_score_count": 0,
+      "non_validation_split_count": 0,
+      "class_counts": {
+        "0.0": 22608,
+        "1.0": 5646
+      },
+      "machine_type_counts": {
+        "fan": 7368,
+        "pump": 6795,
+        "slider": 8277,
+        "valve": 5814
+      },
+      "machine_id_counts": {
+        "id_00": 14292,
+        "id_02": 13962
+      },
+      "split_values": [
+        "val"
+      ],
+      "score_minimum": 0.07157638669013977,
+      "score_maximum": 0.9690729975700378,
+      "score_mean": 0.5080875684581356,
+      "score_standard_deviation": 0.16301568954903076,
+      "export_timestamp": "2026-07-24T05:57:32.373410+00:00",
+      "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+      "status": "PASS"
+    },
+    "independent_metrics": {
+      "roc_auc": 0.6002609444987201,
+      "positive_score_roc_auc": 0.6002609444987201,
+      "negative_score_roc_auc": 0.39973905550127997,
+      "pr_auc": 0.25788610546048196,
+      "eer": 0.4264914171805303,
+      "youden_threshold": 0.4995152950286865,
+      "metrics_at_threshold_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.544453882636087,
+        "balanced_accuracy": 0.5756161662654282,
+        "precision": 0.2475717979176857,
+        "recall": 0.6275239107332625,
+        "f1": 0.3550633862805031,
+        "confusion_matrix": [
+          [
+            11840,
+            10768
+          ],
+          [
+            2103,
+            3543
+          ]
+        ]
+      },
+      "metrics_at_youden_threshold": {
+        "threshold": 0.4995152950286865,
+        "accuracy": 0.5441353436681532,
+        "balanced_accuracy": 0.5760815437417693,
+        "precision": 0.247768479776848,
+        "recall": 0.6292950761601134,
+        "f1": 0.35554888421895325,
+        "confusion_matrix": [
+          [
+            11821,
+            10787
+          ],
+          [
+            2093,
+            3553
+          ]
+        ]
+      }
+    },
+    "subgroup_metrics": {
+      "machine_type_fan": {
+        "roc_auc": 0.47782614330615936,
+        "count": 7368
+      },
+      "machine_type_pump": {
+        "roc_auc": 0.6541110506388094,
+        "count": 6795
+      },
+      "machine_type_slider": {
+        "roc_auc": 0.5668446978729771,
+        "count": 8277
+      },
+      "machine_type_valve": {
+        "roc_auc": 0.5630984835611726,
+        "count": 5814
+      },
+      "machine_id_id_00": {
+        "roc_auc": 0.6342979841138342,
+        "count": 14292
+      },
+      "machine_id_id_02": {
+        "roc_auc": 0.5635492185226376,
+        "count": 13962
+      }
+    }
+  },
+  "cause_of_discrepancy": "The previous audit exporter generated sample_id values from batch_idx * len(labels). When the final validation batch was shorter, later computed IDs overlapped. The corrected exporter uses the dataset-supplied normalized manifest relative path as sample_id.",
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "export_timestamp": "2026-07-24T05:57:32.744474+00:00"
+}

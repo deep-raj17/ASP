@@ -1,0 +1,44 @@
+{
+  "status": "WARNING",
+  "class_imbalance": {
+    "normal": 43146,
+    "abnormal": 9900,
+    "ratio_normal_to_abnormal": 4.36,
+    "per_split": {
+      "test": {
+        "normal": 10731,
+        "abnormal": 2016
+      },
+      "train": {
+        "normal": 9807,
+        "abnormal": 2238
+      },
+      "val": {
+        "normal": 22608,
+        "abnormal": 5646
+      }
+    }
+  },
+  "machine_type_balance": {
+    "fan": 15639,
+    "pump": 12615,
+    "valve": 12510,
+    "slider": 12282
+  },
+  "machine_id_balance": {
+    "id_00": 14292,
+    "id_02": 13962,
+    "id_06": 12747,
+    "id_04": 12045
+  },
+  "noise_condition_balance": {
+    "-6_dB": 18019,
+    "6_dB": 18019,
+    "0_dB": 17008
+  },
+  "split_distribution": {
+    "val": 28254,
+    "test": 12747,
+    "train": 12045
+  }
+}

@@ -1,0 +1,19 @@
+api_version: ros.dev/v1
+kind: ScientificAuditGate
+metadata:
+  id: ros-pub-04-chaad
+  stage: ROS-PUB-04
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_PASS
+  prerequisite:
+    ROS-PUB-03: BLOCKED
+    evidence: publication/ROS_PUB_03_GATE.yaml
+  outputs:
+    independent_scientific_audit: NOT_STARTED
+    adversarial_peer_review: NOT_STARTED
+    pre_submission_certification: NOT_STARTED
+  next_action: Re-evaluate ROS-PUB-04 only after ROS-PUB-03 is PASS.

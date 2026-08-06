@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "summary": "Normalization uses fixed constants, not fitted on any data.",
+  "method": "mel_out = ((mel_db + 80.0) / 80.0).clamp(0.0, 1.0)",
+  "fitted_on": "none (fixed constants)",
+  "test_data_used": false,
+  "parameters": {
+    "offset": 80,
+    "scale": 80,
+    "clamp_min": 0,
+    "clamp_max": 1
+  },
+  "file_reference": "utils/audio_utils.py lines 93-97"
+}

@@ -1,0 +1,32 @@
+{
+  "normalization_type": "fixed_scale",
+  "description": "Log-mel spectrogram normalized to [0,1] using fixed constants",
+  "method": "mel_out = ((mel_db + 80.0) / 80.0).clamp(0.0, 1.0)",
+  "fitted_on": "none",
+  "parameters": {
+    "offset": 80.0,
+    "scale": 80.0,
+    "clamp_min": 0.0,
+    "clamp_max": 1.0
+  },
+  "feature_dimensions": {
+    "n_mels": 128,
+    "variable_frames": true
+  },
+  "timestamp": "2026-07-20T15:21:00+05:30",
+  "manifest_checksum": "see metadata/dataset_manifest.sha256",
+  "test_data_used": false,
+  "verification": {
+    "status": "SAFE",
+    "reason": "Normalization uses fixed constants, not fitted on any data. Same transformation applied to all samples regardless of split.",
+    "file_reference": "utils/audio_utils.py lines 93-97"
+  },
+  "global_transforms": {
+    "StandardScaler": false,
+    "MinMaxScaler": false,
+    "PCA": false,
+    "imputation": false,
+    "feature_selection": false,
+    "learned_preprocessing": false
+  }
+}

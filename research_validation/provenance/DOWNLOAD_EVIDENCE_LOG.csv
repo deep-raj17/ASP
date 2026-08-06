@@ -1,0 +1,2 @@
+filename,url,start_time,end_time,bytes_transferred,elapsed_seconds,average_throughput,retry_number,completion_status,interruption_reason
+-6_dB_fan.zip,https://zenodo.org/api/records/3384388/files/-6_dB_fan.zip/content,2026-07-27T04:56:47Z,2026-07-27T04:58:47Z,64652336,120,538769,3,INCOMPLETE,Network timeout

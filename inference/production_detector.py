@@ -29,6 +29,7 @@ import torch.nn.functional as F
 
 from config import Config
 from inference.detector import AnomalyDetector
+from utils.precision import safe_autocast
 from utils.gpu_utils import (
     compile_model, optimize_for_inference, get_device,
     GPUMonitor, empty_cache, get_memory_stats
@@ -72,7 +73,7 @@ class ProductionDetector:
         if not os.path.exists(calib_path):
             raise FileNotFoundError(f"Calibration file not found: {calib_path}")
 
-        calib = torch.load(calib_path, map_location="cpu", weights_only=False)
+        calib = torch.load(calib_path, map_location="cpu", weights_only=True)
         for k, v in calib.items():
             setattr(self.base_detector, k, v)
         self.base_detector.refresh_reference_cache()
@@ -131,11 +132,9 @@ class ProductionDetector:
         # Move to device with non-blocking transfer
         mel_specs = mel_specs.to(self.device, non_blocking=True)
 
-        # FP16 compute on CUDA without storing FP16 weights (stable + fast).
-        if self.device.type == "cuda":
-            with torch.autocast(device_type="cuda", dtype=torch.float16):
-                out = self.model(mel_specs)
-        else:
+        # The preserved checkpoint overflows in FP16 on the transformer path.
+        # BF16 is stable on supported CUDA devices; otherwise use FP32.
+        with safe_autocast(self.device, enabled=True):
             out = self.model(mel_specs)
 
         # Process each sample in the batch

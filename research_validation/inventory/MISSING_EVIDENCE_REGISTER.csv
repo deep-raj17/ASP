@@ -1,0 +1,8 @@
+evidence_id,required_evidence,status,impact,next_action
+MISS-DATASET-IDENTITY,one authoritative dataset archive checksum/per-file identity set/acquisition receipt,NOT AVAILABLE,BLOCKS PMPS-01 and all downstream gates,Recover exactly one authoritative archive checksum or original acquisition receipt
+MISS-ROS-PROJECT,ROS-PROJECT-02 through ROS-PROJECT-13 stage records,NOT EXECUTED,BLOCKS ROS-PUB-01,Complete project stages in order
+MISS-MULTI-SEED,multi-seed training and stability results,NOT EXECUTED,BLOCKS RV certification,Run approved multi-seed protocol only after prerequisites
+MISS-BASELINES,fair baseline comparison results,NOT EXECUTED,BLOCKS publication claims,Execute registered baseline protocol
+MISS-ABLATIONS,controlled ablation results,NOT EXECUTED,BLOCKS contribution attribution,Execute registered ablation protocol
+MISS-STATISTICS,inferential tests/effect sizes/confidence intervals,NOT EXECUTED,BLOCKS statistical certification,Run statistical validation on frozen results
+MISS-MANUSCRIPT,traceable IEEE manuscript,NOT EXECUTED,BLOCKS writing/review/package stages,Do not draft until evidence gates pass

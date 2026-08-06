@@ -41,6 +41,7 @@ from tqdm import tqdm
 from config import Config
 from training.loss import MultiObjectiveLoss
 from utils.metrics import compute_metrics, EvalMetrics
+from utils.precision import cuda_bf16_available, safe_autocast
 
 # ── Optional loggers ──────────────────────────────────────
 try:
@@ -89,7 +90,7 @@ class Trainer:
         self._amp_enabled = self.tcfg.mixed_precision and self.device.type == "cuda"
         self.scaler = GradScaler(
             device=str(self.device),
-            enabled=self._amp_enabled,
+            enabled=self._amp_enabled and not cuda_bf16_available(),
             init_scale=2**16,
             growth_interval=2000,
         )
@@ -220,7 +221,7 @@ class Trainer:
             mel    = batch["mel"].to(self.device, non_blocking=True)
             labels = batch["label"].to(self.device, non_blocking=True)
 
-            with autocast(device_type=str(self.device), enabled=self._amp_enabled):
+            with safe_autocast(self.device, enabled=self._amp_enabled):
                 outputs = self.model(mel)
                 loss, loss_dict = self.criterion(outputs, labels, mel)
                 loss = loss / acc_steps

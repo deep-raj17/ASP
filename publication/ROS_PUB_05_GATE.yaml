@@ -1,0 +1,27 @@
+api_version: ros.dev/v1
+kind: SubmissionPackageGate
+metadata:
+  id: ros-pub-05-chaad
+  stage: ROS-PUB-05
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_PASS
+  prerequisites:
+    ROS-PUB-01: BLOCKED
+    ROS-PUB-02: BLOCKED
+    ROS-PUB-03: BLOCKED
+    ROS-PUB-04: BLOCKED
+  evidence:
+    ros_pub_01: publication/ROS_PUB_01_GATE.yaml
+    ros_pub_02: publication/ROS_PUB_02_GATE.yaml
+    ros_pub_03: publication/ROS_PUB_03_GATE.yaml
+    ros_pub_04: publication/ROS_PUB_04_GATE.yaml
+  outputs:
+    venue_requirements: NOT_STARTED
+    submission_package: NOT_STARTED
+    compliance_check: NOT_STARTED
+    release_manifest: NOT_STARTED
+  next_action: Re-evaluate ROS-PUB-05 only after ROS-PUB-01 through ROS-PUB-04 all pass.

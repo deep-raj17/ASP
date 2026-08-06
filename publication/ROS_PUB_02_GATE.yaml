@@ -1,0 +1,21 @@
+api_version: ros.dev/v1
+kind: PublicationStrategyGate
+metadata:
+  id: ros-pub-02-chaad
+  stage: ROS-PUB-02
+  version: 1.0.0
+  project: chaad
+  evaluated_at: '2026-07-24'
+spec:
+  decision: BLOCKED
+  reason_code: PREREQUISITE_NOT_PASS
+  prerequisite:
+    ROS-PUB-01: BLOCKED
+    evidence: publication/ROS_PUB_01_GATE.yaml
+  outputs:
+    publication_profile: NOT_STARTED
+    candidate_venues: NOT_STARTED
+    scope_match: NOT_STARTED
+    competing_papers: NOT_STARTED
+    submission_strategy: NOT_STARTED
+  next_action: Re-evaluate ROS-PUB-02 only after ROS-PUB-01 is PASS.

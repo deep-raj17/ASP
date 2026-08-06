@@ -1,0 +1,2 @@
+dataset_id,source_evidence,local_evidence,comparison,traceability_status,limitation,required_action
+mimii-public-1.0,Zenodo public 1.0 record with twelve official ZIP MD5 values,53,046-file manifest; four machine types; four IDs; three noise levels; nine local official-named ZIPs,CONFLICTING,One local archive MD5 mismatches and three official archives are missing,Resolve the mismatch and recover the three missing archives or authoritative acquisition evidence

@@ -1,0 +1,49 @@
+{
+  "test_set_status": "NO_TEST_SET_EXISTS",
+  "manifest_checksum": "see metadata/dataset_manifest.sha256",
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "git_branch": "research-validation",
+  "timestamp": "2026-07-20T15:21:00+05:30",
+  
+  "current_evaluation_setup": {
+    "train_split_exists": true,
+    "validation_split_exists": true,
+    "test_split_exists": false,
+    "evaluation_target": "validation_set",
+    "threshold_selection_target": "validation_set",
+    "calibration_target": "train_normal"
+  },
+  
+  "critical_issue": {
+    "no_untouched_test_set": true,
+    "evaluation_on_validation": true,
+    "threshold_selection_on_validation": true,
+    "same_split_for_selection_and_evaluation": true
+  },
+  
+  "test_set_usage_history": {
+    "has_been_used_for_model_selection": false,
+    "has_been_used_for_threshold_selection": false,
+    "has_been_used_for_hyperparameter_tuning": false,
+    "has_been_viewed_repeatedly": false,
+    "reason": "No test set exists"
+  },
+  
+  "classification": "development_validation_setup",
+  
+  "recommendations": [
+    "Create a separate test set from unused machine IDs or recordings",
+    "Freeze all model decisions (architecture, hyperparameters, calibration, threshold) before opening test set",
+    "Record test-unsealing timestamp and Git commit",
+    "Evaluate test set exactly once",
+    "Do not tune anything after test evaluation"
+  ],
+  
+  "required_actions_for_publication": [
+    "Create train/validation/test split with proper isolation",
+    "Retrain model with frozen experimental protocol",
+    "Select threshold on validation set only",
+    "Evaluate on untouched test set exactly once",
+    "Report both validation and test metrics"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "timestamp": "2026-07-21T11:25:09.247617+00:00",
+  "git_commit": "686c450bd416f6cf921befe4156d1a27b26105c2",
+  "project_root": "C:\\ASP\\ASP",
+  "gates": [
+    {
+      "gate_id": "A",
+      "name": "Data Leakage Audit",
+      "description": "Verify no cross-split leakage: machine ID isolation, SHA-256 duplicates, segment overlap.",
+      "status": "PASS",
+      "evidence": [
+        "artifacts\\research_audit\\machine_split_table.csv",
+        "artifacts\\research_audit\\duplicate_hash_report.csv",
+        "reports\\research_integrity_report.json"
+      ],
+      "recommendation": "No action needed.",
+      "weight": 2.0
+    },
+    {
+      "gate_id": "B",
+      "name": "Reproducibility",
+      "description": "Seeds controlled, dependencies frozen, provenance tracked.",
+      "status": "PASS",
+      "evidence": [
+        "utils\\seed.py",
+        "config.py contains random_seed",
+        "artifacts\\experiment_provenance.json",
+        "requirements.txt exists"
+      ],
+      "recommendation": "No action needed.",
+      "weight": 1.5
+    },
+    {
+      "gate_id": "C",
+      "name": "Shortcut Learning",
+      "description": "Model does not exploit metadata-only features or trivial artifacts.",
+      "status": "PASS",
+      "evidence": [
+        "artifacts\\research_audit\\shortcut_learning_report.json"
+      ],
+      "recommendation": "No shortcut learning detected.",
+      "weight": 1.5
+    },
+    {
+      "gate_id": "D",
+      "name": "Baseline Comparisons",
+      "description": "Strong baselines reported: random, class-prior, single-score, fixed-fusion, classical ML.",
+      "status": "NOT_CHECKED",
+      "evidence": [
+        "baseline_comparison.json NOT FOUND"
+      ],
+      "recommendation": "Run: python scripts/run_baselines.py",
+      "weight": 1.5
+    },
+    {
+      "gate_id": "E",
+      "name": "Ablation Studies",
+      "description": "Each component's contribution isolated: reliability gate, condition-awareness, score sources.",
+      "status": "NOT_CHECKED",
+      "evidence": [
+        "docs\\NOVELTY_AND_CONTRIBUTIONS.md",
+        "ablation_study_report.json NOT FOUND"
+      ],
+      "recommendation": "Run ablation studies and generate report.",
+      "weight": 1.0
+    },
+    {
+      "gate_id": "F",
+      "name": "Statistical Validation",
+      "description": "Bootstrap CIs, significance tests (DeLong, McNemar, Wilcoxon), effect sizes.",
+      "status": "NOT_CHECKED",
+      "evidence": [
+        "statistical_validation_report.json NOT FOUND"
+      ],
+      "recommendation": "Run: python scripts/statistical_validation.py",
+      "weight": 1.0
+    },
+    {
+      "gate_id": "G",
+      "name": "Subgroup Analysis",
+      "description": "Performance reported per machine type, machine ID, and noise condition.",
+      "status": "PASS",
+      "evidence": [
+        "reports/per_machine_results.csv",
+        "reports/per_machine_id_results.csv",
+        "reports/per_noise_condition_results.csv"
+      ],
+      "recommendation": "No action needed.",
+      "weight": 1.0
+    },
+    {
+      "gate_id": "H",
+      "name": "Robustness & Failure Analysis",
+      "description": "Failure modes characterized, confusion analysis, calibration errors, perturbations.",
+      "status": "NOT_CHECKED",
+      "evidence": [
+        "robustness_report.json NOT FOUND",
+        "docs\\LIMITATIONS.md"
+      ],
+      "recommendation": "Create robustness analysis report.",
+      "weight": 1.0
+    },
+    {
+      "gate_id": "I",
+      "name": "Novelty Defined",
+      "description": "Clear research gap, mathematical formulation, novel contribution isolated from engineering.",
+      "status": "PASS",
+      "evidence": [
+        "docs\\NOVELTY_AND_CONTRIBUTIONS.md",
+        "models\\reliability.py"
+      ],
+      "recommendation": "No action needed.",
+      "weight": 2.0
+    },
+    {
+      "gate_id": "J",
+      "name": "Manuscript Ready",
+      "description": "Complete manuscript with all figures, tables, references, and supplementary materials.",
+      "status": "NOT_CHECKED",
+      "evidence": [
+        "final_evaluation_report.json NOT FOUND",
+        "manuscript.md NOT FOUND"
+      ],
+      "recommendation": "Generate manuscript from evaluation results.",
+      "weight": 1.5
+    }
+  ],
+  "overall_verdict": "NO-GO",
+  "overall_score": 57.1,
+  "passed_gates": 5,
+  "total_gates": 10,
+  "critical_failures": [],
+  "warnings": [],
+  "recommendation": "Too many gates failing or not checked. Complete the pipeline before submission."
+}
